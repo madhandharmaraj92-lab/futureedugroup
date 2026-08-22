@@ -19,10 +19,10 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, title, subtitle
       className="main-banner"
       style={{
         padding: '160px 0 70px 0',
-        background: 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #2563eb 100%)',
+        background: '#ffffff',
         position: 'relative',
         overflow: 'hidden',
-        color: '#fff'
+        color: '#0f172a'
       }}
     >
       <FloatingEducationBackground density="medium" interactive={true} />
@@ -35,7 +35,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, title, subtitle
                   fontSize: '14px',
                   textTransform: 'uppercase',
                   letterSpacing: '2px',
-                  color: '#38bdf8',
+                  color: '#0284c7',
                   fontWeight: 700,
                   display: 'inline-block',
                   marginBottom: '10px'
@@ -45,7 +45,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, title, subtitle
               </span>
             )}
             {title && (
-              <h1 style={{ fontSize: '38px', fontWeight: 800, color: '#fff', marginBottom: '18px' }}>
+              <h1 style={{ fontSize: '38px', fontWeight: 800, color: '#0f172a', marginBottom: '18px' }}>
                 {title}
               </h1>
             )}
@@ -59,7 +59,8 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, title, subtitle
                   gap: '8px',
                   listStyle: 'none',
                   padding: '8px 20px',
-                  background: 'rgba(255, 255, 255, 0.12)',
+                  background: 'rgba(219, 234, 254, 0.72)',
+                  border: '1px solid rgba(147, 197, 253, 0.7)',
                   backdropFilter: 'blur(8px)',
                   borderRadius: '30px',
                   margin: 0,
@@ -67,7 +68,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, title, subtitle
                 }}
               >
                 <li>
-                  <Link to="/" style={{ color: '#fff', textDecoration: 'none', fontWeight: 500 }}>
+                  <Link to="/" style={{ color: '#1e3a8a', textDecoration: 'none', fontWeight: 600 }}>
                     Home
                   </Link>
                 </li>
@@ -75,14 +76,14 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, title, subtitle
                   const isLast = index === items.length - 1;
                   return (
                     <React.Fragment key={item.path}>
-                      <li style={{ color: '#93c5fd' }}>
+                      <li style={{ color: '#0284c7' }}>
                         <i className="fa fa-angle-right"></i>
                       </li>
                       <li aria-current={isLast ? 'page' : undefined}>
                         {isLast ? (
-                          <span style={{ color: '#bae6fd', fontWeight: 600 }}>{item.name}</span>
+                          <span style={{ color: '#1d4ed8', fontWeight: 700 }}>{item.name}</span>
                         ) : (
-                          <Link to={item.path} style={{ color: '#fff', textDecoration: 'none' }}>
+                          <Link to={item.path} style={{ color: '#1e3a8a', textDecoration: 'none', fontWeight: 600 }}>
                             {item.name}
                           </Link>
                         )}

@@ -230,7 +230,7 @@ Header & Responsive Navigation
 .header-area {
   background: transparent;
   position: absolute;
-  height: 95px;
+  height: 108px;
   top: 0;
   left: 0;
   right: 0;
@@ -243,12 +243,12 @@ Header & Responsive Navigation
 .header-area.header-sticky {
   position: fixed;
   background: #ffffff;
-  height: 85px;
+  height: 95px;
   box-shadow: 0 8px 22px rgba(15, 23, 42, 0.14) !important;
 }
 
 .header-area .main-nav {
-  min-height: 85px;
+  min-height: 95px;
   background: transparent;
   display: flex;
   align-items: center;
@@ -277,8 +277,8 @@ Header & Responsive Navigation
 
 /* Brand logos supplied for each Future Edu division. */
 .header-area .main-nav .logo img.header-brand-logo {
-  width: 138px;
-  height: 82px;
+  width: 153px;
+  height: 93px;
   max-height: none;
   object-fit: contain;
   object-position: center;
@@ -407,7 +407,7 @@ Header & Responsive Navigation
 .header-area .main-nav .menu-trigger span,
 .header-area .main-nav .menu-trigger span:before,
 .header-area .main-nav .menu-trigger span:after {
-  background-color: #ffffff;
+  background-color: #0284c7;
   display: block;
   position: absolute;
   width: 100%;
@@ -768,8 +768,8 @@ Responsive Media Queries & Z-Index Guards
   .header-area {
     position: fixed !important;
     background: transparent !important;
-    height: 68px !important;
-    min-height: 68px !important;
+    height: 79px !important;
+    min-height: 79px !important;
     border-radius: 0 !important;
     width: 100% !important;
     left: 0 !important;
@@ -789,8 +789,8 @@ Responsive Media Queries & Z-Index Guards
   }
 
   .header-area .main-nav {
-    min-height: 68px !important;
-    height: 68px !important;
+    min-height: 79px !important;
+    height: 79px !important;
   }
 
   .header-area .main-nav .logo {
@@ -799,8 +799,8 @@ Responsive Media Queries & Z-Index Guards
   }
 
   .header-area .main-nav .logo img.header-brand-logo {
-    width: 104px;
-    height: 62px;
+    width: 119px;
+    height: 73px;
   }
 
   /* Mobile Navbar */
@@ -812,7 +812,7 @@ Responsive Media Queries & Z-Index Guards
 
   .header-area .main-nav .nav {
     position: fixed;
-    top: 68px;
+    top: 79px;
     left: 0;
     width: 100%;
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -823,7 +823,7 @@ Responsive Media Queries & Z-Index Guards
     gap: 4px;
     display: none;
     border-top: 1px solid rgba(255, 255, 255, 0.15);
-    max-height: calc(100vh - 68px);
+    max-height: calc(100vh - 79px);
     overflow-y: auto;
     z-index: 10000;
   }

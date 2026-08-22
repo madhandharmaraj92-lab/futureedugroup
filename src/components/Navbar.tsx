@@ -77,8 +77,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, onOpenSearch }) =
                   src={headerLogo}
                   alt={headerLogoAlt}
                   style={{
-                    width: '138px',
-                    height: '82px',
+                    width: '153px',
+                    height: '93px',
                     objectFit: 'contain',
                     objectPosition: 'center',
                     background: 'transparent',
@@ -143,6 +143,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, onOpenSearch }) =
                     <li>
                       <Link to="/about-us" className={pathname === '/about-us' ? 'active' : ''}>
                         About Us
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/student-gallery" className={pathname === '/student-gallery' ? 'active' : ''}>
+                        Student Gallery
                       </Link>
                     </li>
                   </ul>

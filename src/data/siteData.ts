@@ -9,10 +9,10 @@ export const SITE_CONFIG = {
   phone: '+91 96327 62017',
   whatsapp: '+91 96327 62017',
   address: {
-    street: 'Future Edu Knowledge Hub, Sector 62',
-    city: 'Hyderabad',
-    state: 'Telangana',
-    postalCode: '500081',
+    street: 'Unit No. TE-04, 3rd Floor, 38/17, #1678, SMART AVENUE, Nehru Road, Kammanahalli, HRBR Layout',
+    city: 'Bangalore ',
+    state: 'Karnataka',
+    postalCode: '560043',
     country: 'India'
   },
   socialLinks: {
