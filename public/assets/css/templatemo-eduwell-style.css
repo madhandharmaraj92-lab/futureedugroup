@@ -768,8 +768,8 @@ Responsive Media Queries & Z-Index Guards
   .header-area {
     position: fixed !important;
     background: transparent !important;
-    height: 79px !important;
-    min-height: 79px !important;
+    height: 93px !important;
+    min-height: 93px !important;
     border-radius: 0 !important;
     width: 100% !important;
     left: 0 !important;
