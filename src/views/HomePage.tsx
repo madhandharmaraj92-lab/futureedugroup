@@ -110,7 +110,7 @@ export const HomePage: React.FC<HomePageProps> = () => {
             <div className="col-lg-6">
               <div className="right-image text-center" style={{ position: 'relative' }}>
                 <img
-                  src="/assets/images/banner-images/image-5.png"
+                  src="/assets/images/banner-images/image-6.png"
                   alt="Future Edu Group Career Pathways & Hospitality"
                   style={{
                     maxWidth: '100%',

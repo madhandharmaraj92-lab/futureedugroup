@@ -140,7 +140,7 @@ export const PROGRAMS: ProgramItem[] = [
       'In-Flight Crew Support'
     ],
     iconName: 'Plane',
-    image: '/assets/images/banner-images/image-1.png'
+    image: '/assets/images/banner-images/image-2.png'
   },
   {
     id: 'ug-degrees',
@@ -169,7 +169,7 @@ export const PROGRAMS: ProgramItem[] = [
       'Pathway to MBA / MCA / Masters'
     ],
     iconName: 'GraduationCap',
-    image: '/assets/images/banner-images/image-2.png'
+    image: '/assets/images/banner-images/image-3.png'
   },
   {
     id: 'pg-degrees',
@@ -198,7 +198,7 @@ export const PROGRAMS: ProgramItem[] = [
       'Entrepreneurship & Global Opportunities'
     ],
     iconName: 'Award',
-    image: '/assets/images/courses-03.jpg'
+    image: '/assets/images/banner-images/image-4.png'
   },
   {
     id: 'iit-foundation',
@@ -226,7 +226,7 @@ export const PROGRAMS: ProgramItem[] = [
       'Strong Analytical & Mathematical Aptitude'
     ],
     iconName: 'BookOpen',
-    image: '/assets/images/courses-03.jpg'
+    image: '/assets/images/banner-images/image-5.png'
   },
   {
     id: 'ai-english-lab',
@@ -254,7 +254,7 @@ export const PROGRAMS: ProgramItem[] = [
       'Excellent Campus Placement & Interview Readiness'
     ],
     iconName: 'Mic',
-    image: '/assets/images/courses-04.jpg'
+    image: '/assets/images/banner-images/image-6.png'
   }
 ];
 
