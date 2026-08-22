@@ -1,0 +1,8 @@
+{
+  "name": "EduWell Education",
+  "description": "Future Edu Group client-side React SPA portal featuring Tourism & Hospitality Management Academy, Higher Education Degree Solutions, and K-12 STEM & AI Language Lab Solutions with a modern blue theme.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
