@@ -2,12 +2,12 @@ import { DivisionInfo, ProgramItem, TestimonialItem, FAQItem } from '../types';
 
 export const SITE_CONFIG = {
   name: 'Future Edu Group',
-  siteUrl: 'https://futureedugroup.com',
+  siteUrl: 'https://futureedugroup.in',
   tagline: 'Empowering Education. Enabling Careers. Building Futures.',
   description: 'Future Edu Group is an integrated education ecosystem offering world-class Tourism & Hospitality training, Higher Education degree admissions & guidance, and cutting-edge K-12 STEM & AI Language Lab school solutions.',
-  email: 'admissions@futureedugroup.com',
-  phone: '+91 98765 43210',
-  whatsapp: '+91 98765 43210',
+  email: 'admission@futureedugroup.in',
+  phone: '+91 96327 62017',
+  whatsapp: '+91 96327 62017',
   address: {
     street: 'Future Edu Knowledge Hub, Sector 62',
     city: 'Hyderabad',

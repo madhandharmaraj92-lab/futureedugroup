@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from './Link';
 import { DIVISIONS, SITE_CONFIG } from '../data/siteData';
 
 export const Footer: React.FC = () => {

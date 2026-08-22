@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { usePathname } from 'next/navigation';
+import { Link } from './Link';
 import { DIVISIONS, SITE_CONFIG } from '../data/siteData';
 
 interface NavbarProps {
@@ -12,7 +13,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, onOpenSearch }) =
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDivisionsDropdownOpen, setIsDivisionsDropdownOpen] = useState(false);
   const [isPagesDropdownOpen, setIsPagesDropdownOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,9 +32,23 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, onOpenSearch }) =
     setIsMobileMenuOpen(false);
     setIsDivisionsDropdownOpen(false);
     setIsPagesDropdownOpen(false);
-  }, [location.pathname]);
+  }, [pathname]);
 
-  const isDivisionActive = DIVISIONS.some((d) => d.path === location.pathname);
+  const isDivisionActive = DIVISIONS.some((d) => d.path === pathname);
+  const headerLogo = pathname === '/tourism-hospitality'
+    ? '/assets/images/logos/logo_1.jpg'
+    : pathname === '/edu-solutions'
+      ? '/assets/images/logos/logo_2.png'
+      : pathname === '/gen-learning-solutions'
+        ? '/assets/images/logos/logo_3.jpg'
+        : '/assets/images/logos/logo.jpg';
+  const headerLogoAlt = pathname === '/tourism-hospitality'
+    ? 'Future Academy of Tourism and Hospitality Management'
+    : pathname === '/edu-solutions'
+      ? 'Future Edu Solutions'
+      : pathname === '/gen-learning-solutions'
+        ? 'Future Gen Learning Solutions'
+        : 'Future Edu Group';
 
   return (
     <header className={`header-area ${isScrolled ? 'header-sticky' : ''}`} style={{ transition: 'all 0.3s ease' }}>
@@ -57,25 +72,38 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, onOpenSearch }) =
                   whiteSpace: 'nowrap'
                 }}
               >
-                <span>FUTURE<span style={{ color: '#bae6fd' }}>EDU</span>GROUP</span>
+                <img
+                  className="header-brand-logo"
+                  src={headerLogo}
+                  alt={headerLogoAlt}
+                  style={{
+                    width: '138px',
+                    height: '82px',
+                    objectFit: 'contain',
+                    objectPosition: 'center',
+                    background: 'transparent',
+                    borderRadius: 0,
+                    padding: 0
+                  }}
+                />
               </Link>
 
               {/* Desktop & Tablet Menu */}
               <ul className={`nav ${isMobileMenuOpen ? 'show-mobile' : ''}`}>
                 <li>
-                  <Link to="/" className={location.pathname === '/' ? 'active' : ''}>
+                  <Link to="/" className={pathname === '/' ? 'active' : ''}>
                     Home
                   </Link>
                 </li>
 
                 <li>
-                  <Link to="/our-services" className={location.pathname === '/our-services' ? 'active' : ''}>
+                  <Link to="/our-services" className={pathname === '/our-services' ? 'active' : ''}>
                     Services
                   </Link>
                 </li>
 
                 <li>
-                  <Link to="/tourism-hospitality" className={location.pathname === '/tourism-hospitality' ? 'active' : ''}>
+                  <Link to="/tourism-hospitality" className={pathname === '/tourism-hospitality' ? 'active' : ''}>
                     Courses
                   </Link>
                 </li>
@@ -92,28 +120,28 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, onOpenSearch }) =
                       e.preventDefault();
                       setIsPagesDropdownOpen(!isPagesDropdownOpen);
                     }}
-                    className={isDivisionActive || location.pathname === '/about-us' ? 'active' : ''}
+                    className={isDivisionActive || pathname === '/about-us' ? 'active' : ''}
                   >
                     Pages <i className="fa fa-angle-down" style={{ marginLeft: '4px' }}></i>
                   </a>
                   <ul className={`sub-menu ${isPagesDropdownOpen ? 'd-block' : ''}`}>
                     <li>
-                      <Link to="/tourism-hospitality" className={location.pathname === '/tourism-hospitality' ? 'active' : ''}>
+                      <Link to="/tourism-hospitality" className={pathname === '/tourism-hospitality' ? 'active' : ''}>
                         Tourism &amp; Hospitality Academy
                       </Link>
                     </li>
                     <li>
-                      <Link to="/edu-solutions" className={location.pathname === '/edu-solutions' ? 'active' : ''}>
+                      <Link to="/edu-solutions" className={pathname === '/edu-solutions' ? 'active' : ''}>
                         Higher Education Solutions
                       </Link>
                     </li>
                     <li>
-                      <Link to="/gen-learning-solutions" className={location.pathname === '/gen-learning-solutions' ? 'active' : ''}>
+                      <Link to="/gen-learning-solutions" className={pathname === '/gen-learning-solutions' ? 'active' : ''}>
                         Future Gen Learning Solutions
                       </Link>
                     </li>
                     <li>
-                      <Link to="/about-us" className={location.pathname === '/about-us' ? 'active' : ''}>
+                      <Link to="/about-us" className={pathname === '/about-us' ? 'active' : ''}>
                         About Us
                       </Link>
                     </li>
@@ -124,7 +152,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, onOpenSearch }) =
                   <Link
                     to="/#testimonials"
                     onClick={(e) => {
-                      if (location.pathname === '/') {
+                      if (pathname === '/') {
                         const el = document.getElementById('testimonials');
                         if (el) {
                           e.preventDefault();
@@ -132,14 +160,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, onOpenSearch }) =
                         }
                       }
                     }}
-                    className={location.hash === '#testimonials' ? 'active' : ''}
+                    className=""
                   >
                     Testimonials
                   </Link>
                 </li>
 
                 <li>
-                  <Link to="/contact-us" className={location.pathname === '/contact-us' ? 'active' : ''}>
+                  <Link to="/contact-us" className={pathname === '/contact-us' ? 'active' : ''}>
                     Contact Us
                   </Link>
                 </li>

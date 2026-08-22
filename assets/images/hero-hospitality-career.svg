@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700" width="100%" height="100%">
+  <defs>
+    <filter id="softGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#0284c7" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <rect width="600" height="700" fill="#ffffff" rx="24" />
+
+  <!-- Career Stepping Line -->
+  <path d="M 160,650 L 225,650 L 225,585 L 355,585 L 355,420 L 540,420" 
+        fill="none" stroke="#0ea5e9" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Cloud on lower left -->
+  <path d="M 45,510 C 35,510 30,500 35,490 C 35,475 55,470 65,478 C 75,465 100,465 108,480 C 120,480 125,492 118,505 C 110,515 95,512 85,510 Z" 
+        fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- HOTEL BUILDING -->
+  <g transform="translate(440, 380)">
+    <!-- Main building body -->
+    <rect x="0" y="0" width="105" height="115" rx="3" fill="#ffffff" stroke="#1e3a8a" stroke-width="3.5" />
+    <!-- Signboard Header -->
+    <rect x="-4" y="-22" width="113" height="24" rx="3" fill="#2563eb" stroke="#1e3a8a" stroke-width="3" />
+    <text x="52" y="-6" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="900" text-anchor="middle" letter-spacing="1.5">HOTEL</text>
+    
+    <!-- Windows Grid -->
+    <!-- Row 1 -->
+    <rect x="14" y="14" width="16" height="14" rx="2" fill="#eff6ff" stroke="#1e3a8a" stroke-width="2.5" />
+    <rect x="38" y="14" width="16" height="14" rx="2" fill="#eff6ff" stroke="#1e3a8a" stroke-width="2.5" />
+    <rect x="62" y="14" width="16" height="14" rx="2" fill="#eff6ff" stroke="#1e3a8a" stroke-width="2.5" />
+    <!-- Row 2 -->
+    <rect x="14" y="38" width="16" height="14" rx="2" fill="#eff6ff" stroke="#1e3a8a" stroke-width="2.5" />
+    <rect x="38" y="38" width="16" height="14" rx="2" fill="#eff6ff" stroke="#1e3a8a" stroke-width="2.5" />
+    <rect x="62" y="38" width="16" height="14" rx="2" fill="#eff6ff" stroke="#1e3a8a" stroke-width="2.5" />
+    <!-- Row 3 -->
+    <rect x="14" y="62" width="16" height="14" rx="2" fill="#eff6ff" stroke="#1e3a8a" stroke-width="2.5" />
+    <rect x="38" y="62" width="16" height="14" rx="2" fill="#eff6ff" stroke="#1e3a8a" stroke-width="2.5" />
+    <rect x="62" y="62" width="16" height="14" rx="2" fill="#eff6ff" stroke="#1e3a8a" stroke-width="2.5" />
+
+    <!-- Entrance Canopy / Dome -->
+    <path d="M 24,115 L 24,96 C 24,80 81,80 81,96 L 81,115 Z" fill="#ffffff" stroke="#1e3a8a" stroke-width="3" />
+    <path d="M 28,96 C 28,84 77,84 77,96 Z" fill="#0284c7" />
+    <line x1="52" y1="96" x2="52" y2="115" stroke="#1e3a8a" stroke-width="2.5" />
+
+    <!-- Action lines around hotel -->
+    <path d="M 112,50 C 118,55 118,65 112,70" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M -8,50 C -14,55 -14,65 -8,70" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" />
+  </g>
+
+  <!-- CRUISE LINER SHIP -->
+  <g transform="translate(440, 65)">
+    <!-- Ship Hull -->
+    <path d="M 0,90 L 125,65 L 140,88 C 120,118 35,118 0,90 Z" fill="#ffffff" stroke="#1e3a8a" stroke-width="3.5" stroke-linejoin="round" />
+    <!-- Blue waterline stripe -->
+    <path d="M 10,95 L 125,72 L 132,86 C 115,108 40,110 10,95 Z" fill="#0284c7" />
+    
+    <!-- Portholes -->
+    <circle cx="28" cy="85" r="3.5" fill="#1e3a8a" />
+    <circle cx="48" cy="80" r="3.5" fill="#1e3a8a" />
+    <circle cx="68" cy="76" r="3.5" fill="#1e3a8a" />
+    <circle cx="88" cy="72" r="3.5" fill="#1e3a8a" />
+    <circle cx="108" cy="68" r="3.5" fill="#1e3a8a" />
+
+    <!-- Anchor icon -->
+    <path d="M 120,80 L 120,90 M 115,86 C 115,92 125,92 125,86" fill="none" stroke="#1e3a8a" stroke-width="2.5" stroke-linecap="round" />
+
+    <!-- Ship Decks / Cabins -->
+    <rect x="25" y="48" width="85" height="20" rx="2" fill="#ffffff" stroke="#1e3a8a" stroke-width="3" />
+    <line x1="38" y1="52" x2="38" y2="64" stroke="#1e3a8a" stroke-width="2.5" />
+    <line x1="55" y1="52" x2="55" y2="64" stroke="#1e3a8a" stroke-width="2.5" />
+    <line x1="72" y1="52" x2="72" y2="64" stroke="#1e3a8a" stroke-width="2.5" />
+    <line x1="89" y1="52" x2="89" y2="64" stroke="#1e3a8a" stroke-width="2.5" />
+
+    <rect x="40" y="28" width="60" height="20" rx="2" fill="#ffffff" stroke="#1e3a8a" stroke-width="3" />
+    <!-- Smokestack funnels -->
+    <rect x="52" y="10" width="14" height="18" rx="2" fill="#2563eb" stroke="#1e3a8a" stroke-width="2.5" />
+    <rect x="75" y="10" width="14" height="18" rx="2" fill="#2563eb" stroke="#1e3a8a" stroke-width="2.5" />
+
+    <!-- Ocean waves under ship -->
+    <path d="M -10,105 C 10,95 25,115 45,105 C 65,95 85,115 105,105 C 125,95 145,112 160,105" 
+          fill="none" stroke="#0ea5e9" stroke-width="3.5" stroke-linecap="round" />
+  </g>
+
+  <!-- HOSPITALITY PROFESSIONAL CHARACTER -->
+  <g transform="translate(100, 160)">
+    <!-- Motion dynamic curves around character -->
+    <path d="M 125,18 C 120,5 130,-5 135,-8" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M 285,120 C 300,110 310,125 315,140" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M 155,530 C 165,540 180,545 190,538" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M -15,350 C -5,355 -10,375 -25,370" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" />
+
+    <!-- Left Arm & Tray (Food Cloche Dome) -->
+    <!-- Left Hand & Forearm -->
+    <path d="M 140,195 L 65,225 L 75,245 L 140,215 Z" fill="#ffffff" stroke="#0f172a" stroke-width="3.5" stroke-linejoin="round" />
+    <rect x="52" y="222" width="22" height="14" rx="3" fill="#0284c7" stroke="#0f172a" stroke-width="3" />
+    <!-- Left Hand holding tray -->
+    <path d="M 50,225 C 40,225 35,215 45,210 L 60,210" fill="#ffffff" stroke="#0f172a" stroke-width="3" />
+    
+    <!-- Left Serving Tray -->
+    <line x1="0" y1="205" x2="105" y2="205" stroke="#0f172a" stroke-width="4.5" stroke-linecap="round" />
+    <!-- Cloche Food Dome -->
+    <path d="M 30,205 C 30,165 75,165 75,205 Z" fill="#0ea5e9" stroke="#0f172a" stroke-width="3.5" />
+    <circle cx="52.5" cy="160" r="5" fill="#0284c7" stroke="#0f172a" stroke-width="3" />
+
+    <!-- Back Leg (Running forward in air) -->
+    <g transform="translate(0,0)">
+      <path d="M 130,340 L 40,390 L 10,480" fill="none" stroke="#0f172a" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" />
+      <!-- White cuff / sock -->
+      <path d="M 5,470 L 15,490" stroke="#ffffff" stroke-width="12" stroke-linecap="round" />
+      <!-- Black Shoe -->
+      <path d="M 15,480 L -15,505 C -25,515 -10,530 5,520 L 30,495 Z" fill="#0f172a" stroke="#0f172a" stroke-width="3" stroke-linejoin="round" />
+    </g>
+
+    <!-- Front Leg (Stepping up onto career step) -->
+    <g transform="translate(0,0)">
+      <path d="M 175,340 L 210,420 L 250,560" fill="none" stroke="#0f172a" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" />
+      <!-- White cuff / sock -->
+      <path d="M 245,550 L 255,570" stroke="#ffffff" stroke-width="12" stroke-linecap="round" />
+      <!-- Black Shoe -->
+      <path d="M 250,560 L 295,600 C 305,610 320,595 305,580 L 270,550 Z" fill="#0f172a" stroke="#0f172a" stroke-width="3" stroke-linejoin="round" />
+    </g>
+
+    <!-- Main Torso Uniform Jacket -->
+    <path d="M 125,170 C 145,170 205,175 220,185 L 205,355 C 180,360 140,360 115,350 L 105,195 Z" 
+          fill="#ffffff" stroke="#0f172a" stroke-width="4" stroke-linejoin="round" />
+    <!-- Blue Collar & Inner Shirt -->
+    <path d="M 150,170 L 165,225 L 180,170 Z" fill="#0284c7" stroke="#0f172a" stroke-width="3.5" />
+    <path d="M 135,170 L 165,225 L 195,170" fill="none" stroke="#0f172a" stroke-width="3.5" stroke-linejoin="round" />
+    
+    <!-- Uniform Trim & Buttons -->
+    <path d="M 165,225 L 165,355" stroke="#0f172a" stroke-width="3.5" />
+    <circle cx="165" cy="255" r="3.5" fill="#0284c7" />
+    <circle cx="165" cy="290" r="3.5" fill="#0284c7" />
+    <circle cx="165" cy="325" r="3.5" fill="#0284c7" />
+
+    <!-- Blue Pocket Trim -->
+    <rect x="115" y="275" width="26" height="6" rx="2" fill="#2563eb" stroke="#0f172a" stroke-width="2.5" />
+    <rect x="185" y="235" width="22" height="6" rx="2" fill="#2563eb" stroke="#0f172a" stroke-width="2.5" />
+
+    <!-- Right Arm & Right Tray (World Globe & Desk Bell) -->
+    <!-- Right Arm -->
+    <path d="M 215,185 L 290,230 L 275,255 L 195,215 Z" fill="#ffffff" stroke="#0f172a" stroke-width="3.5" stroke-linejoin="round" />
+    <rect x="270" y="230" width="22" height="14" rx="3" fill="#0284c7" stroke="#0f172a" stroke-width="3" />
+    <!-- Right Hand -->
+    <path d="M 285,230 C 295,230 300,220 290,215 L 275,215" fill="#ffffff" stroke="#0f172a" stroke-width="3" />
+
+    <!-- Right Serving Tray -->
+    <line x1="230" y1="225" x2="345" y2="225" stroke="#0f172a" stroke-width="4.5" stroke-linecap="round" />
+    
+    <!-- Desk Call Bell on Tray -->
+    <path d="M 245,225 C 245,205 270,205 270,225 Z" fill="#0ea5e9" stroke="#0f172a" stroke-width="3" />
+    <circle cx="257.5" cy="200" r="3" fill="#0284c7" stroke="#0f172a" stroke-width="2.5" />
+
+    <!-- World Globe on Tray -->
+    <!-- Stand -->
+    <path d="M 310,225 L 310,212 C 322,212 328,198 328,185 C 328,172 320,160 308,160" fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round" />
+    <line x1="300" y1="225" x2="320" y2="225" stroke="#0f172a" stroke-width="3.5" stroke-linecap="round" />
+    <!-- Globe sphere -->
+    <circle cx="310" cy="185" r="22" fill="#eff6ff" stroke="#0f172a" stroke-width="3" />
+    <path d="M 296,178 C 302,170 315,172 322,176 C 318,188 308,192 296,186 Z" fill="#0284c7" stroke="#0f172a" stroke-width="1.8" />
+    <path d="M 305,195 C 315,198 325,192 328,198 C 320,206 310,205 305,195 Z" fill="#0284c7" stroke="#0f172a" stroke-width="1.8" />
+
+    <!-- Head & Face -->
+    <!-- Neck -->
+    <rect x="155" y="145" width="24" height="30" fill="#ffffff" stroke="#0f172a" stroke-width="3.5" />
+    <!-- Face -->
+    <path d="M 145,115 C 145,75 195,75 195,115 C 195,145 145,145 145,115 Z" fill="#ffffff" stroke="#0f172a" stroke-width="4" />
+    
+    <!-- Hair (Curly black) -->
+    <path d="M 140,110 C 130,95 140,70 160,65 C 175,60 195,65 200,85 C 205,100 198,115 195,118 C 185,105 170,105 155,108 Z" 
+          fill="#0f172a" stroke="#0f172a" stroke-width="2" />
+    
+    <!-- Glasses -->
+    <circle cx="160" cy="112" r="11" fill="none" stroke="#0f172a" stroke-width="3" />
+    <circle cx="184" cy="112" r="11" fill="none" stroke="#0f172a" stroke-width="3" />
+    <line x1="171" y1="112" x2="173" y2="112" stroke="#0f172a" stroke-width="3" />
+    <!-- Eyes inside glasses -->
+    <circle cx="162" cy="112" r="2.5" fill="#0f172a" />
+    <circle cx="186" cy="112" r="2.5" fill="#0f172a" />
+
+    <!-- Happy Smile -->
+    <path d="M 166,132 C 172,140 180,140 186,132" fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round" />
+
+    <!-- Concierge / Bellhop Cap -->
+    <path d="M 145,75 L 195,75 L 188,48 L 152,48 Z" fill="#0284c7" stroke="#0f172a" stroke-width="3.5" stroke-linejoin="round" />
+    <line x1="145" y1="75" x2="195" y2="75" stroke="#0f172a" stroke-width="4" />
+  </g>
+</svg>
