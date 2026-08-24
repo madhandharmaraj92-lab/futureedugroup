@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700" width="100%" height="100%">
+  <defs>
+    <filter id="softGlowCurriculum" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#2563eb" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <rect width="600" height="700" fill="#ffffff" rx="24" />
+
+  <!-- Blue Stepping Line -->
+  <path d="M 85,650 L 205,650 L 205,585 L 345,585 L 345,520 L 515,520" 
+        fill="none" stroke="#0ea5e9" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- BUSINESS PARTNERSHIP HANDSHAKE (Top right) -->
+  <g transform="translate(340, 95)">
+    <!-- Left Hand / Cuff (Blue) -->
+    <path d="M 0,25 L 20,0 L 40,15 L 20,40 Z" fill="#1e40af" stroke="#0f172a" stroke-width="3" stroke-linejoin="round" />
+    <path d="M 20,40 L 42,65 C 48,72 58,72 65,65 L 75,55" fill="#ffffff" stroke="#0f172a" stroke-width="3.5" stroke-linejoin="round" />
+    <!-- Right Hand / Cuff (Blue) -->
+    <path d="M 130,25 L 110,0 L 90,15 L 110,40 Z" fill="#0284c7" stroke="#0f172a" stroke-width="3" stroke-linejoin="round" />
+    <path d="M 110,40 L 88,65 C 82,72 72,72 65,65 L 55,55" fill="#ffffff" stroke="#0f172a" stroke-width="3.5" stroke-linejoin="round" />
+    <!-- Interlocked fingers -->
+    <path d="M 45,45 C 55,30 75,30 85,45" fill="none" stroke="#0f172a" stroke-width="3.5" stroke-linecap="round" />
+    <path d="M 40,58 C 52,48 78,48 90,58" fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round" />
+    <path d="M 45,68 C 55,60 75,60 85,68" fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <!-- UPWARD GROWTH ARROW -->
+  <g transform="translate(340, 275)">
+    <path d="M 0,105 L 45,60 L 68,85 L 125,25 L 125,58 M 125,25 L 92,25" 
+          fill="none" stroke="#0284c7" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" />
+    <polygon points="125,25 90,25 125,60" fill="#0284c7" />
+  </g>
+
+  <!-- RESUME / CV DOCUMENT (Behind university) -->
+  <g transform="translate(430, 360)">
+    <!-- Main Sheet -->
+    <path d="M 0,0 L 75,0 L 95,20 L 95,130 L 0,130 Z" fill="#ffffff" stroke="#0f172a" stroke-width="3.5" stroke-linejoin="round" />
+    <!-- Folded corner -->
+    <path d="M 75,0 L 75,20 L 95,20" fill="#ffffff" stroke="#0f172a" stroke-width="3" stroke-linejoin="round" />
+    
+    <!-- Profile Photo Box -->
+    <rect x="14" y="24" width="28" height="30" rx="3" fill="#ffffff" stroke="#0284c7" stroke-width="2.5" />
+    <circle cx="28" cy="35" r="5" fill="#0284c7" />
+    <path d="M 19,50 C 19,43 37,43 37,50" fill="#0284c7" />
+
+    <!-- Name / Title Bars -->
+    <line x1="48" y1="28" x2="80" y2="28" stroke="#0f172a" stroke-width="3" stroke-linecap="round" />
+    <line x1="48" y1="38" x2="80" y2="38" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" />
+    <line x1="48" y1="48" x2="72" y2="48" stroke="#0284c7" stroke-width="2" stroke-linecap="round" />
+
+    <!-- Content Lines -->
+    <line x1="14" y1="68" x2="80" y2="68" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" />
+    <line x1="14" y1="80" x2="80" y2="80" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" />
+    <line x1="14" y1="92" x2="80" y2="92" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" />
+    <line x1="14" y1="104" x2="65" y2="104" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" />
+  </g>
+
+  <!-- UNIVERSITY / INSTITUTE BUILDING -->
+  <g transform="translate(370, 420)">
+    <!-- Base Platform & Stairs -->
+    <rect x="0" y="70" width="130" height="20" rx="2" fill="#ffffff" stroke="#0f172a" stroke-width="3.5" />
+    <line x1="10" y1="80" x2="120" y2="80" stroke="#0ea5e9" stroke-width="2.5" />
+    
+    <!-- Building Walls & Arch Doorway -->
+    <rect x="8" y="24" width="114" height="46" fill="#ffffff" stroke="#0f172a" stroke-width="3.5" />
+    <!-- Center Entrance Arch -->
+    <path d="M 50,70 L 50,42 C 50,32 80,32 80,42 L 80,70 Z" fill="#0284c7" stroke="#0f172a" stroke-width="3" />
+    <line x1="65" y1="42" x2="65" y2="70" stroke="#ffffff" stroke-width="2" />
+
+    <!-- Classical Greek Columns -->
+    <rect x="18" y="24" width="8" height="46" fill="#eff6ff" stroke="#0f172a" stroke-width="2.5" />
+    <rect x="34" y="24" width="8" height="46" fill="#eff6ff" stroke="#0f172a" stroke-width="2.5" />
+    <rect x="88" y="24" width="8" height="46" fill="#eff6ff" stroke="#0f172a" stroke-width="2.5" />
+    <rect x="104" y="24" width="8" height="46" fill="#eff6ff" stroke="#0f172a" stroke-width="2.5" />
+
+    <!-- Triangular Pediment / Roof -->
+    <polygon points="65,0 0,24 130,24" fill="#ffffff" stroke="#0f172a" stroke-width="3.5" stroke-linejoin="round" />
+    <!-- Center Pediment Emblem -->
+    <circle cx="65" cy="14" r="5" fill="#0284c7" stroke="#0f172a" stroke-width="2" />
+
+    <!-- Action lines around building -->
+    <path d="M 136,35 C 142,40 142,50 136,55" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M -6,35 C -12,40 -12,50 -6,55" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" />
+  </g>
+
+  <!-- ACADEMIC & CAREER PROFESSIONAL (Woman climbing steps) -->
+  <g transform="translate(60, 120)">
+    <!-- Motion lines -->
+    <path d="M 40,250 C 30,260 25,275 35,285" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M -8,510 C -2,525 -5,540 -18,545" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" />
+
+    <!-- Back Leg (Extending down-left) -->
+    <g>
+      <path d="M 140,320 L 70,420 L 45,520" fill="none" stroke="#0f172a" stroke-width="34" stroke-linecap="round" stroke-linejoin="round" />
+      <!-- Ankle -->
+      <circle cx="45" cy="520" r="10" fill="#ffffff" />
+      <!-- High Heel Shoe (Blue) -->
+      <path d="M 40,515 L 12,530 C 0,538 5,555 20,550 L 50,535 L 45,558" fill="#0284c7" stroke="#0f172a" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" />
+    </g>
+
+    <!-- Front Leg (Stepping up on stair) -->
+    <g>
+      <path d="M 175,320 L 230,375 L 205,510" fill="none" stroke="#0f172a" stroke-width="34" stroke-linecap="round" stroke-linejoin="round" />
+      <!-- Ankle -->
+      <circle cx="205" cy="510" r="10" fill="#ffffff" />
+      <!-- High Heel Shoe (Blue) -->
+      <path d="M 200,505 L 245,530 C 258,536 250,555 235,550 L 195,525 L 190,552" fill="#0284c7" stroke="#0f172a" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" />
+    </g>
+
+    <!-- Inner White Shirt -->
+    <polygon points="140,140 185,140 180,260 145,260" fill="#ffffff" stroke="#0f172a" stroke-width="3" />
+
+    <!-- Royal Blue Blazer Jacket Body -->
+    <path d="M 115,145 C 135,140 190,140 215,150 L 205,330 C 175,340 145,340 120,330 Z" 
+          fill="#0284c7" stroke="#0f172a" stroke-width="4" stroke-linejoin="round" />
+    
+    <!-- Blazer Lapels (V-Neck cut) -->
+    <path d="M 130,145 L 160,225 L 140,260" fill="none" stroke="#0f172a" stroke-width="3.5" stroke-linejoin="round" />
+    <path d="M 195,145 L 165,225 L 185,260" fill="none" stroke="#0f172a" stroke-width="3.5" stroke-linejoin="round" />
+
+    <!-- Left Arm holding Degree Certificate Folder -->
+    <!-- Arm -->
+    <path d="M 125,160 L 115,280 L 145,285" fill="#0284c7" stroke="#0f172a" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" />
+    <!-- Hand holding folder -->
+    <circle cx="140" cy="285" r="12" fill="#ffffff" stroke="#0f172a" stroke-width="3" />
+
+    <!-- DEGREE DIPLOMA CERTIFICATE FOLDER -->
+    <g transform="translate(45, 205) rotate(6)">
+      <rect x="0" y="0" width="115" height="85" rx="5" fill="#ffffff" stroke="#0f172a" stroke-width="3.5" />
+      
+      <!-- Graduation Cap Badge on Certificate -->
+      <g transform="translate(75, 40)">
+        <polygon points="12,0 24,6 12,12 0,6" fill="#0284c7" stroke="#0f172a" stroke-width="2" />
+        <path d="M 6,9 L 6,15 C 6,18 18,18 18,15 L 18,9" fill="#0284c7" stroke="#0f172a" stroke-width="2" />
+        <path d="M 22,7 L 24,18" stroke="#0f172a" stroke-width="1.8" />
+      </g>
+
+      <!-- Ribbon Seal Stamp (Blue) -->
+      <g transform="translate(18, 55)">
+        <circle cx="10" cy="10" r="10" fill="#ffffff" stroke="#0284c7" stroke-width="2.5" />
+        <polygon points="5,18 10,28 15,18" fill="#0284c7" stroke="#0f172a" stroke-width="1.5" />
+      </g>
+
+      <!-- Certificate Text Lines -->
+      <line x1="18" y1="20" x2="65" y2="20" stroke="#0f172a" stroke-width="3" stroke-linecap="round" />
+      <line x1="18" y1="30" x2="55" y2="30" stroke="#64748b" stroke-width="2" stroke-linecap="round" />
+      <line x1="18" y1="40" x2="50" y2="40" stroke="#64748b" stroke-width="2" stroke-linecap="round" />
+    </g>
+
+    <!-- Right Arm (Raised in determined forward fist) -->
+    <path d="M 195,160 L 260,205 L 240,240" fill="#0284c7" stroke="#0f172a" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" />
+    <!-- Clenched Fist -->
+    <path d="M 255,190 C 265,180 280,185 275,200 C 270,210 255,210 250,200 Z" fill="#ffffff" stroke="#0f172a" stroke-width="3.5" stroke-linejoin="round" />
+
+    <!-- Head & Hair -->
+    <!-- Neck -->
+    <rect x="150" y="115" width="22" height="28" fill="#ffffff" stroke="#0f172a" stroke-width="3.5" />
+    
+    <!-- Face Contour -->
+    <path d="M 140,85 C 140,55 185,55 185,85 C 185,115 140,115 140,85 Z" fill="#ffffff" stroke="#0f172a" stroke-width="4" />
+    
+    <!-- Curly Hair (White/Grey with stylized curls) -->
+    <path d="M 135,90 C 115,80 115,50 135,40 C 150,25 185,25 200,45 C 215,65 205,95 190,95 C 185,80 170,75 155,78 C 145,80 138,85 135,90 Z" 
+          fill="#ffffff" stroke="#0f172a" stroke-width="3.5" stroke-linejoin="round" />
+    <path d="M 125,60 C 118,70 120,80 130,85" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M 145,45 C 155,40 170,40 180,48" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M 195,65 C 202,75 198,85 190,90" fill="none" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" />
+
+    <!-- Glasses -->
+    <circle cx="152" cy="85" r="10" fill="none" stroke="#0f172a" stroke-width="3" />
+    <circle cx="174" cy="85" r="10" fill="none" stroke="#0f172a" stroke-width="3" />
+    <line x1="162" y1="85" x2="164" y2="85" stroke="#0f172a" stroke-width="3" />
+    
+    <!-- Eyes -->
+    <circle cx="154" cy="85" r="2.5" fill="#0f172a" />
+    <circle cx="176" cy="85" r="2.5" fill="#0f172a" />
+
+    <!-- Confident Smile -->
+    <path d="M 158,102 C 164,108 172,108 178,102" fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round" />
+  </g>
+</svg>
