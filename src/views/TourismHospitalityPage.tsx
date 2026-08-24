@@ -136,7 +136,7 @@ export const TourismHospitalityPage: React.FC<TourismHospitalityPageProps> = () 
             <div className="col-lg-6">
               <div style={{ position: 'relative', textAlign: 'center' }}>
                 <img
-                  src="/assets/images/banner-images/image-1.png"
+                  src="/assets/images/courses-02.jpg"
                   alt="Future Academy of Tourism and Hospitality Management"
                   style={{ maxWidth: '100%', height: 'auto', display: 'inline-block', filter: 'drop-shadow(0 15px 30px rgba(2, 132, 199, 0.15))' }}
                 />

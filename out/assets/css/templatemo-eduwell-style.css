@@ -905,3 +905,18 @@ Responsive Media Queries & Z-Index Guards
     padding: 24px 18px;
   }
 }
+
+/* Future Edu Group brand header override */
+.header-area,
+.header-area.header-sticky {
+  background: rgba(3, 27, 53, 0.96) !important;
+  border-bottom: 3px solid #d7a22e;
+  box-shadow: 0 9px 26px rgba(3, 27, 53, 0.34) !important;
+}
+
+.header-area .main-nav .nav li a { color: #ffffff !important; }
+.header-area .main-nav .nav li:hover > a,
+.header-area .main-nav .nav li a.active { color: #f5c652 !important; }
+.header-area .main-nav .menu-trigger span,
+.header-area .main-nav .menu-trigger span:before,
+.header-area .main-nav .menu-trigger span:after { background-color: #f5c652; }

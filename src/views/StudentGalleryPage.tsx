@@ -23,7 +23,7 @@ export const StudentGalleryPage: React.FC = () => (
       <div className="container">
         <div className="row"><div className="col-lg-8 offset-lg-2 text-center"><div className="section-heading"><h6>Our Community</h6><h4>Learning, Growth &amp; <em>Success</em></h4><p>A glimpse into the learning journeys and student-support experiences across Future Edu Group.</p></div></div></div>
         <div className="row">
-          {galleryItems.map((item) => <div key={item.src} className="col-lg-3 col-md-6 mb-4"><div style={{ overflow: 'hidden', borderRadius: '16px', background: '#f8fafc', border: '1px solid #e2e8f0', boxShadow: '0 8px 22px rgba(15, 23, 42, 0.06)' }}><img src={item.src} alt={item.alt} style={{ width: '100%', height: '250px', objectFit: 'cover', display: 'block' }} /></div></div>)}
+          {galleryItems.map((item) => <div key={item.src} className="col-lg-3 col-md-6 mb-4"><div className="gallery-card" style={{ overflow: 'hidden', borderRadius: '16px', background: '#f8fafc', border: '1px solid #e2e8f0', boxShadow: '0 8px 22px rgba(15, 23, 42, 0.06)' }}><img src={item.src} alt={item.alt} style={{ width: '100%', height: '250px', objectFit: 'cover', display: 'block' }} /></div></div>)}
         </div>
       </div>
     </section>

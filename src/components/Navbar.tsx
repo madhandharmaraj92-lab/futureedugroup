@@ -34,7 +34,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, onOpenSearch }) =
     setIsPagesDropdownOpen(false);
   }, [pathname]);
 
-  const isDivisionActive = DIVISIONS.some((d) => d.path === pathname);
+  const isPageActive = pathname === '/about-us' || pathname === '/student-gallery';
   const headerLogo = pathname === '/tourism-hospitality'
     ? '/assets/images/logos/logo_1.jpg'
     : pathname === '/edu-solutions'
@@ -77,8 +77,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, onOpenSearch }) =
                   src={headerLogo}
                   alt={headerLogoAlt}
                   style={{
-                    width: '153px',
-                    height: '93px',
+                    width: '168px',
+                    height: '102px',
                     objectFit: 'contain',
                     objectPosition: 'center',
                     background: 'transparent',
@@ -110,7 +110,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, onOpenSearch }) =
 
                 {/* Pages Dropdown matching existing design */}
                 <li
-                  className={`has-sub ${isPagesDropdownOpen || isDivisionActive ? 'active' : ''}`}
+                  className={`has-sub ${isPagesDropdownOpen ? 'active' : ''}`}
                   onMouseEnter={() => setIsPagesDropdownOpen(true)}
                   onMouseLeave={() => setIsPagesDropdownOpen(false)}
                 >
@@ -120,34 +120,34 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, onOpenSearch }) =
                       e.preventDefault();
                       setIsPagesDropdownOpen(!isPagesDropdownOpen);
                     }}
-                    className={isDivisionActive || pathname === '/about-us' ? 'active' : ''}
+                    className={isPageActive ? 'active' : ''}
                   >
                     Pages <i className="fa fa-angle-down" style={{ marginLeft: '4px' }}></i>
                   </a>
                   <ul className={`sub-menu ${isPagesDropdownOpen ? 'd-block' : ''}`}>
                     <li>
                       <Link to="/tourism-hospitality" className={pathname === '/tourism-hospitality' ? 'active' : ''}>
-                        Tourism &amp; Hospitality Academy
+                        <img className="page-menu-image" src="/assets/images/courses-02.jpg" alt="" /><span>Tourism &amp; Hospitality Academy</span>
                       </Link>
                     </li>
                     <li>
                       <Link to="/edu-solutions" className={pathname === '/edu-solutions' ? 'active' : ''}>
-                        Higher Education Solutions
+                        <img className="page-menu-image" src="/assets/images/team-member-02.jpg" alt="" /><span>Higher Education Solutions</span>
                       </Link>
                     </li>
                     <li>
                       <Link to="/gen-learning-solutions" className={pathname === '/gen-learning-solutions' ? 'active' : ''}>
-                        Future Gen Learning Solutions
+                        <img className="page-menu-image" src="/assets/images/courses-04.jpg" alt="" /><span>Future Gen Learning Solutions</span>
                       </Link>
                     </li>
                     <li>
                       <Link to="/about-us" className={pathname === '/about-us' ? 'active' : ''}>
-                        About Us
+                        <img className="page-menu-image" src="/assets/images/team-member-04.jpg" alt="" /><span>About Us</span>
                       </Link>
                     </li>
                     <li>
                       <Link to="/student-gallery" className={pathname === '/student-gallery' ? 'active' : ''}>
-                        Student Gallery
+                        <img className="page-menu-image" src="/assets/images/courses-01.jpg" alt="" /><span>Student Gallery</span>
                       </Link>
                     </li>
                   </ul>

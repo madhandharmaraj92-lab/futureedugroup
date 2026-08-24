@@ -1,12 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from '../components/Link';
 import { SEO } from '../components/SEO';
 import { DIVISIONS, PROGRAMS, TESTIMONIALS, FAQS, SITE_CONFIG } from '../data/siteData';
 import { getOrganizationSchema, getFAQSchema } from '../utils/schemaGenerator';
 import { InquiryForm } from '../components/InquiryForm';
-import { FloatingEducationBackground } from '../components/FloatingEducationBackground';
+import { PageHeroCarousel } from '../components/PageHeroCarousel';
 import { useInquiry } from '../contexts/InquiryContext';
 
 interface HomePageProps {
@@ -17,6 +17,21 @@ export const HomePage: React.FC<HomePageProps> = () => {
   const onOpenInquiry = useInquiry();
   const [activeTab, setActiveTab] = useState<number>(0);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+  const [partnerStart, setPartnerStart] = useState(0);
+  const partners = [
+    { name: 'Asian International University', src: '/assets/images/logos/aiu%20logo.png' },
+    { name: 'Sikkim Skill University', src: '/assets/images/logos/new-ssu-logo.png' },
+    { name: 'Shri Rukmini Dwarkadhish University', src: '/assets/images/logos/2%20logo.png' },
+    { name: 'Swaminarayan University', src: '/assets/images/logos/SN.png' },
+    { name: 'Vivekananda Global University', src: '/assets/images/logos/gdoe.png' }
+  ];
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setPartnerStart((current) => (current + 3) % partners.length), 4200);
+    return () => window.clearInterval(timer);
+  }, [partners.length]);
+
+  const displayedPartners = Array.from({ length: 3 }, (_, index) => partners[(partnerStart + index) % partners.length]);
 
   const homeSchema = [
     getOrganizationSchema(),
@@ -53,92 +68,17 @@ export const HomePage: React.FC<HomePageProps> = () => {
         schema={homeSchema}
       />
 
-      {/* ***** Hero Banner Area ***** */}
-      <section className="main-banner" id="top" style={{ padding: '170px 0 100px 0', position: 'relative', overflow: 'hidden' }}>
-        <FloatingEducationBackground density="high" interactive={true} />
-        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          <div className="row align-items-center">
-            <div className="col-lg-6 align-self-center">
-              <div className="header-text">
-                <span
-                  style={{
-                    display: 'inline-block',
-                    padding: '6px 16px',
-                    borderRadius: '20px',
-                    background: 'rgba(37, 99, 235, 0.12)',
-                    color: '#2563eb',
-                    fontSize: '13px',
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    letterSpacing: '1px',
-                    marginBottom: '15px'
-                  }}
-                >
-                  Empowering Education • Enabling Careers
-                </span>
-                <h1 style={{ fontSize: '46px', fontWeight: 800, color: '#0f172a', lineHeight: '1.25', marginBottom: '20px' }}>
-                  Learn. Experience. Explore. <br />
-                  <em style={{ fontStyle: 'normal', color: '#2563eb' }}>Build a Global Career.</em>
-                </h1>
-                <p style={{ color: '#475569', fontSize: '16px', lineHeight: '1.8', marginBottom: '30px' }}>
-                  From international cruise & hotel careers to recognized university degree pathways and K-12 STEM & AI language labs, Future Edu Group bridges knowledge with real-world industry success.
-                </p>
-                <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
-                  <a href="#divisions" className="main-gradient-button" style={{ display: 'inline-block', padding: '14px 30px', fontSize: '15px' }}>
-                    Explore Our Divisions
-                  </a>
-                  <button
-                    type="button"
-                    onClick={() => onOpenInquiry && onOpenInquiry()}
-                    style={{
-                      padding: '14px 28px',
-                      borderRadius: '25px',
-                      border: '2px solid #2563eb',
-                      background: 'transparent',
-                      color: '#2563eb',
-                      fontSize: '15px',
-                      fontWeight: 600,
-                      cursor: 'pointer',
-                      transition: 'all 0.3s'
-                    }}
-                  >
-                    Quick Inquiry
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6">
-              <div className="right-image text-center" style={{ position: 'relative' }}>
-                <img
-                  src="/assets/images/banner-images/image-6.png"
-                  alt="Future Edu Group Career Pathways & Hospitality"
-                  style={{
-                    maxWidth: '100%',
-                    height: 'auto',
-                    display: 'block',
-                    margin: '0 auto',
-                    filter: 'drop-shadow(0 15px 30px rgba(2, 132, 199, 0.15))'
-                  }}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHeroCarousel variant="home" />
 
-      <section style={{ padding: '58px 0', background: '#f8fafc' }}>
+      <section className="home-partners-section" style={{ padding: '58px 0', background: '#f8fafc' }}>
         <div className="container">
           <div style={{ maxWidth: '1000px', margin: '0 auto', background: '#fff', border: '1px solid #dbeafe', borderRadius: '20px', padding: '34px 28px', boxShadow: '0 8px 24px rgba(15, 23, 42, 0.05)', textAlign: 'center' }}>
             <span style={{ display: 'inline-block', color: '#0284c7', fontSize: '13px', fontWeight: 800, letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '8px' }}>
               Authorised Admission Partner for
             </span>
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '18px', flexWrap: 'wrap', marginTop: '18px' }}>
-              {[
-                { name: 'Asian International University', src: '/assets/images/logos/aiu%20logo.png' },
-                { name: 'Sikkim Skill University', src: '/assets/images/logos/new-ssu-logo.png' },
-                { name: 'Shri Rukmini Dwarkadhish University', src: '/assets/images/logos/2%20logo.png' }
-              ].map((university) => (
-                <div key={university.name} style={{ width: '250px', maxWidth: '100%', minHeight: '124px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '14px', background: '#fff', border: '1px solid #bae6fd', borderRadius: '14px' }}>
+            <div className="partner-logo-strip" style={{ display: 'flex', justifyContent: 'center', gap: '18px', flexWrap: 'wrap', marginTop: '18px' }}>
+              {displayedPartners.map((university) => (
+                <div className="partner-logo-card" key={university.name} style={{ width: '250px', maxWidth: '100%', minHeight: '124px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '14px', background: '#fff', border: '1px solid #bae6fd', borderRadius: '14px' }}>
                   <img src={university.src} alt={university.name} style={{ width: '100%', height: '66px', objectFit: 'contain', display: 'block' }} />
                   <span style={{ color: '#0f172a', fontSize: '13px', fontWeight: 700, marginTop: '8px', textAlign: 'center' }}>{university.name}</span>
                 </div>
@@ -148,8 +88,20 @@ export const HomePage: React.FC<HomePageProps> = () => {
         </div>
       </section>
 
+      <section className="founder-card-section" style={{ padding: '48px 0', background: '#fff' }}>
+        <div className="container">
+          <div className="founder-card">
+            <img src="/assets/images/founder-naresh-sampara.png" alt="Dr. Naresh Sampara" />
+            <div>
+              <h2>Dr. Naresh Sampara</h2>
+              <p>Founder &amp; Chairman</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ***** Three Flagship Divisions Section ***** */}
-      <section className="our-courses" id="divisions" style={{ padding: '90px 0', background: '#f8fafc' }}>
+      <section className="our-courses home-section-pattern home-pattern-one" id="divisions" style={{ padding: '90px 0', background: '#f8fafc' }}>
         <div className="container">
           <div className="row">
             <div className="col-lg-8 offset-lg-2 text-center">
@@ -235,7 +187,7 @@ export const HomePage: React.FC<HomePageProps> = () => {
       </section>
 
       {/* ***** Interactive Programs & Pathways Explorer ***** */}
-      <section className="our-courses" id="courses" style={{ padding: '90px 0' }}>
+      <section className="our-courses home-section-pattern home-pattern-two" id="courses" style={{ padding: '90px 0' }}>
         <div className="container">
           <div className="row">
             <div className="col-lg-8 offset-lg-2 text-center">
@@ -388,7 +340,7 @@ export const HomePage: React.FC<HomePageProps> = () => {
                 <div className="row align-items-center">
                   <div className="col-lg-5 text-center mb-4 mb-lg-0">
                     <img
-                      src="/assets/images/banner-images/image-2.png"
+                      src="/assets/images/video-thumb.jpg"
                       alt="Curriculum Solutions & Academic Career Pathways"
                       style={{ maxWidth: '100%', maxHeight: '340px', width: 'auto', display: 'block', margin: '0 auto', filter: 'drop-shadow(0 12px 25px rgba(2, 132, 199, 0.18))' }}
                     />
@@ -500,7 +452,7 @@ export const HomePage: React.FC<HomePageProps> = () => {
       </section>
 
       {/* ***** Why Choose Future Edu Group ***** */}
-      <section style={{ padding: '80px 0', background: 'linear-gradient(135deg, #091e42 0%, #1e3a8a 60%, #1d4ed8 100%)', color: '#fff' }}>
+      <section className="home-section-pattern home-pattern-three" style={{ padding: '80px 0', background: 'linear-gradient(135deg, #091e42 0%, #1e3a8a 60%, #1d4ed8 100%)', color: '#fff' }}>
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-5 mb-4 mb-lg-0">
@@ -573,7 +525,7 @@ export const HomePage: React.FC<HomePageProps> = () => {
       </section>
 
       {/* ***** Testimonials Area ***** */}
-      <section className="testimonials" id="testimonials" style={{ padding: '90px 0' }}>
+      <section className="testimonials home-section-pattern home-pattern-four" id="testimonials" style={{ padding: '90px 0' }}>
         <div className="container">
           <div className="row">
             <div className="col-lg-8 offset-lg-2 text-center">
@@ -627,7 +579,7 @@ export const HomePage: React.FC<HomePageProps> = () => {
       </section>
 
       {/* ***** FAQ Accordion Section (with Schema.org Support) ***** */}
-      <section style={{ padding: '80px 0', background: '#f8fafc' }}>
+      <section className="home-section-pattern home-pattern-five" style={{ padding: '80px 0', background: '#f8fafc' }}>
         <div className="container">
           <div className="row">
             <div className="col-lg-8 offset-lg-2 text-center">
@@ -689,7 +641,7 @@ export const HomePage: React.FC<HomePageProps> = () => {
       </section>
 
       {/* ***** Contact & Quick Consultation Section ***** */}
-      <section className="contact-us" id="contact-section" style={{ padding: '90px 0' }}>
+      <section className="contact-us home-section-pattern home-pattern-six" id="contact-section" style={{ padding: '90px 0' }}>
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-5 mb-5 mb-lg-0">

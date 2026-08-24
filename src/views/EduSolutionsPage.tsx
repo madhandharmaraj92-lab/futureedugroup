@@ -98,7 +98,7 @@ export const EduSolutionsPage: React.FC<EduSolutionsPageProps> = () => {
 
             <div className="col-lg-6 text-center">
               <img
-                src="/assets/images/banner-images/image-2.png"
+                src="/assets/images/team-member-02.jpg"
                 alt="Future Edu Solutions Career & Degree Guidance"
                 style={{ maxWidth: '100%', maxHeight: '360px', width: 'auto', display: 'inline-block', filter: 'drop-shadow(0 15px 30px rgba(2, 132, 199, 0.15))' }}
               />

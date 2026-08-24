@@ -109,7 +109,7 @@ export const PROGRAMS: ProgramItem[] = [
       'Guest Relations Executive'
     ],
     iconName: 'Hotel',
-    image: '/assets/images/banner-images/image-1.png'
+    image: '/assets/images/courses-01.jpg'
   },
   {
     id: 'cruise-aviation-careers',
@@ -140,7 +140,7 @@ export const PROGRAMS: ProgramItem[] = [
       'In-Flight Crew Support'
     ],
     iconName: 'Plane',
-    image: '/assets/images/banner-images/image-2.png'
+    image: '/assets/images/courses-02.jpg'
   },
   {
     id: 'ug-degrees',
@@ -169,7 +169,7 @@ export const PROGRAMS: ProgramItem[] = [
       'Pathway to MBA / MCA / Masters'
     ],
     iconName: 'GraduationCap',
-    image: '/assets/images/banner-images/image-3.png'
+    image: '/assets/images/courses-03.jpg'
   },
   {
     id: 'pg-degrees',
@@ -198,7 +198,7 @@ export const PROGRAMS: ProgramItem[] = [
       'Entrepreneurship & Global Opportunities'
     ],
     iconName: 'Award',
-    image: '/assets/images/banner-images/image-4.png'
+    image: '/assets/images/courses-04.jpg'
   },
   {
     id: 'iit-foundation',
@@ -226,7 +226,7 @@ export const PROGRAMS: ProgramItem[] = [
       'Strong Analytical & Mathematical Aptitude'
     ],
     iconName: 'BookOpen',
-    image: '/assets/images/banner-images/image-5.png'
+    image: '/assets/images/team-member-01.jpg'
   },
   {
     id: 'ai-english-lab',
@@ -254,7 +254,7 @@ export const PROGRAMS: ProgramItem[] = [
       'Excellent Campus Placement & Interview Readiness'
     ],
     iconName: 'Mic',
-    image: '/assets/images/banner-images/image-6.png'
+    image: '/assets/images/team-member-02.jpg'
   }
 ];
 

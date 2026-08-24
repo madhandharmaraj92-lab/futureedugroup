@@ -92,6 +92,7 @@ export const OurServicesPage: React.FC = () => {
                 {SERVICES.map((s, idx) => (
                   <div key={idx} className="col-lg-4 col-md-6 mb-4">
                     <div
+                      className="animated-card"
                       style={{
                         background: '#fcfcfe',
                         border: '1px solid #edf0f8',
@@ -106,9 +107,11 @@ export const OurServicesPage: React.FC = () => {
                       }}
                     >
                       <div>
-                        <div style={{ width: '52px', height: '52px', borderRadius: '12px', background: 'rgba(37, 99, 235, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#2563eb', fontSize: '22px', marginBottom: '20px' }}>
-                          <i className={`fa ${s.icon}`}></i>
-                        </div>
+                        <img
+                          src={`/assets/images/${idx % 2 === 0 ? `courses-0${(idx % 4) + 1}.jpg` : `team-member-0${(idx % 5) + 1}.jpg`}`}
+                          alt=""
+                          style={{ width: '100%', height: '180px', objectFit: 'cover', borderRadius: '11px', marginBottom: '22px', display: 'block' }}
+                        />
                         <h4 style={{ fontSize: '19px', fontWeight: 700, marginBottom: '12px', color: '#0f172a' }}>
                           {s.title}
                         </h4>
