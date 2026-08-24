@@ -909,14 +909,71 @@ Responsive Media Queries & Z-Index Guards
 /* Future Edu Group brand header override */
 .header-area,
 .header-area.header-sticky {
-  background: rgba(3, 27, 53, 0.96) !important;
-  border-bottom: 3px solid #d7a22e;
-  box-shadow: 0 9px 26px rgba(3, 27, 53, 0.34) !important;
+  background: #f3f4f6 !important;
+  border-bottom: 3px solid transparent;
+  box-shadow: none !important;
+  transition: border-color .45s ease !important;
 }
+.header-area.header-sticky { background: #f3f4f6 !important; border-bottom-color: #0e87c9; box-shadow: none !important; }
 
-.header-area .main-nav .nav li a { color: #ffffff !important; }
+.header-area .main-nav .nav li a { color: #06264a !important; }
 .header-area .main-nav .nav li:hover > a,
-.header-area .main-nav .nav li a.active { color: #f5c652 !important; }
+.header-area .main-nav .nav li a.active { color: #0e87c9 !important; }
 .header-area .main-nav .menu-trigger span,
 .header-area .main-nav .menu-trigger span:before,
 .header-area .main-nav .menu-trigger span:after { background-color: #f5c652; }
+
+.header-area,
+.header-area.header-sticky { height: 116px; }
+.header-area .main-nav { min-height: 116px; }
+.header-area .main-nav .logo img.header-brand-logo {
+  width: 168px;
+  height: 102px;
+  object-fit: contain;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  transition: width .3s ease, height .3s ease, transform .3s ease;
+}
+
+.header-area:after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #f5c652 18%, #f5c652 82%, transparent);
+  display: none;
+}
+.header-area .main-nav { position: relative; z-index: 1; }
+.header-area .main-nav .nav { gap: 2px; }
+.header-area .main-nav .nav li { padding: 0 11px; }
+.header-area .main-nav .nav li a {
+  position: relative;
+  letter-spacing: .2px;
+  text-decoration: none !important;
+}
+.header-area .main-nav .nav li a:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 4px;
+  width: 0;
+  height: 2px;
+  background: #f5c652;
+  transform: translateX(-50%);
+  transition: width .25s ease;
+}
+.header-area .main-nav .nav li:hover > a:after,
+.header-area .main-nav .nav li a.active:after { width: calc(100% - 6px); }
+.header-area .main-nav .nav li.has-sub ul.sub-menu { border: 1px solid rgba(215, 162, 46, .45); border-radius: 0 0 12px 12px; }
+.header-area .main-nav .nav li.has-sub ul.sub-menu li a { color: #06264a !important; }
+.header-area .main-nav .nav li.has-sub ul.sub-menu li a:after { display: none; }
+.header-area .main-nav .nav li.has-sub ul.sub-menu li a .page-menu-image { width: 34px; height: 26px; border-radius: 5px; object-fit: cover; margin-right: 10px; flex: 0 0 auto; }
+
+@media (max-width: 991px) {
+  .header-area,
+  .header-area.header-sticky { height: 98px !important; min-height: 98px !important; }
+  .header-area .main-nav { min-height: 98px !important; height: 98px !important; }
+  .header-area .main-nav .logo img.header-brand-logo { width: 138px; height: 84px; padding: 4px 7px; }
+  .header-area .main-nav .nav { top: 98px; max-height: calc(100vh - 98px); }
+}
