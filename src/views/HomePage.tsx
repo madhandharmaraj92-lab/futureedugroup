@@ -648,9 +648,7 @@ export const HomePage: React.FC<HomePageProps> = () => {
               <div className="section-heading" style={{ textAlign: 'left' }}>
                 <h6>Get in Touch</h6>
                 <h4>Connect with Our <em>Admissions Hub</em></h4>
-                <p style={{ marginTop: '15px', color: '#cbd5e1', lineHeight: '1.8' }}>
-                  Have questions about our Tourism & Hospitality programs, University admissions, or School K-12 AI Lab integrations? Our expert counsellors are here to guide you.
-                </p>
+
               </div>
 
               <div style={{ marginTop: '30px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
