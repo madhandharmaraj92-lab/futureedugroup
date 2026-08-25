@@ -2,6 +2,7 @@
 const config = {
   siteUrl: 'https://futureedugroup.in',
   generateRobotsTxt: false,
+  generateIndexSitemap: false,
   outputDir: 'out',
 };
 

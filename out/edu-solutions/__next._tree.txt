@@ -1,8 +1,8 @@
 :HL["/_next/static/chunks/2gl8j-kyw4oji.css","style"]
-:HL["/_next/static/chunks/36utlyhm75bry.css","style"]
+:HL["/_next/static/chunks/3id6pyasfl89-.css","style"]
 :HL["https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap","style"]
 :HL["https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css","style",{"crossOrigin":"anonymous","referrerPolicy":"no-referrer"}]
 :HL["/assets/css/templatemo-eduwell-style.css","style"]
 :HL["/assets/css/owl.css","style"]
 :HL["/assets/css/lightbox.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"edu-solutions","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"ZLkoqilS3LI2G9eg-Kgwl"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"edu-solutions","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"pWYaVSHt0W_Fr94UJkb-r"}

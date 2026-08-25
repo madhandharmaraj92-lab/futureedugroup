@@ -143,7 +143,11 @@ export const Footer: React.FC = () => {
             <div style={{ fontSize: '14px', lineHeight: '1.7', color: '#b5b8c7' }}>
               <p style={{ marginBottom: '12px' }}>
                 <i className="fa fa-map-marker" style={{ color: '#38bdf8', marginRight: '10px' }}></i>
-                {SITE_CONFIG.address.street}, {SITE_CONFIG.address.city}, {SITE_CONFIG.address.state}
+                {SITE_CONFIG.register_office.street}, {SITE_CONFIG.register_office.city}, {SITE_CONFIG.register_office.state}
+              </p>
+              <p style={{ marginBottom: '12px' }}>
+                <i className="fa fa-map-marker" style={{ color: '#38bdf8', marginRight: '10px' }}></i>
+                {SITE_CONFIG.corporate_office.street}, {SITE_CONFIG.corporate_office.city}, {SITE_CONFIG.corporate_office.state}
               </p>
               <p style={{ marginBottom: '12px' }}>
                 <i className="fa fa-phone" style={{ color: '#38bdf8', marginRight: '10px' }}></i>

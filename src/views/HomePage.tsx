@@ -654,8 +654,8 @@ export const HomePage: React.FC<HomePageProps> = () => {
               </div>
 
               <div style={{ marginTop: '30px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                  <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(56, 189, 248, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#38bdf8', fontSize: '20px' }}>
+                <div className="home-contact-item" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                  <div className="home-contact-icon" style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(56, 189, 248, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#38bdf8', fontSize: '20px' }}>
                     <i className="fa fa-envelope"></i>
                   </div>
                   <div>
@@ -666,8 +666,8 @@ export const HomePage: React.FC<HomePageProps> = () => {
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                  <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(56, 189, 248, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#38bdf8', fontSize: '20px' }}>
+                <div className="home-contact-item" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                  <div className="home-contact-icon" style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(56, 189, 248, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#38bdf8', fontSize: '20px' }}>
                     <i className="fa fa-phone"></i>
                   </div>
                   <div>
@@ -678,14 +678,25 @@ export const HomePage: React.FC<HomePageProps> = () => {
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                  <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(56, 189, 248, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#38bdf8', fontSize: '20px' }}>
+                <div className="home-contact-item" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                  <div className="home-contact-icon" style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(56, 189, 248, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#38bdf8', fontSize: '20px' }}>
                     <i className="fa fa-map-marker"></i>
                   </div>
                   <div>
-                    <div style={{ fontSize: '12px', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 700 }}>Head Office</div>
+                    <div style={{ fontSize: '12px', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 700 }}>Registered Office</div>
                     <div style={{ fontSize: '15px', fontWeight: 600, color: '#fff' }}>
-                      {SITE_CONFIG.address.street}, {SITE_CONFIG.address.city}, {SITE_CONFIG.address.state}
+                      {SITE_CONFIG.register_office.street}, {SITE_CONFIG.register_office.city}, {SITE_CONFIG.register_office.state}
+                    </div>
+                  </div>
+                </div>
+                <div className="home-contact-item" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                  <div className="home-contact-icon" style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(56, 189, 248, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#38bdf8', fontSize: '20px' }}>
+                    <i className="fa fa-map-marker"></i>
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '12px', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 700 }}>Corporate Office</div>
+                    <div style={{ fontSize: '15px', fontWeight: 600, color: '#fff' }}>
+                      {SITE_CONFIG.corporate_office.street}, {SITE_CONFIG.corporate_office.city}, {SITE_CONFIG.corporate_office.state}
                     </div>
                   </div>
                 </div>

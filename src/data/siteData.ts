@@ -5,14 +5,28 @@ export const SITE_CONFIG = {
   siteUrl: 'https://futureedugroup.in',
   tagline: 'Empowering Education. Enabling Careers. Building Futures.',
   description: 'Future Edu Group is an integrated education ecosystem offering world-class Tourism & Hospitality training, Higher Education degree admissions & guidance, and cutting-edge K-12 STEM & AI Language Lab school solutions.',
-  email: 'admission@futureedugroup.in',
+  email: 'info@futureedugroup.in',
   phone: '+91 96327 62017',
-  whatsapp: '+91 96327 62017',
+  whatsapp: '+91 96327 62017' ,
   address: {
     street: 'Unit No. TE-04, 3rd Floor, 38/17, #1678, SMART AVENUE, Nehru Road, Kammanahalli, HRBR Layout',
     city: 'Bangalore ',
     state: 'Karnataka',
     postalCode: '560043',
+    country: 'India'
+  },
+  register_office: {
+    street: 'Unit No. TE-04, 3rd Floor, 38/17, #1678, SMART AVENUE, Nehru Road, Kammanahalli, HRBR Layout',
+    city: 'Bangalore ',
+    state: 'Karnataka',
+    postalCode: '560043',
+    country: 'India'
+  },
+  corporate_office: {
+    street: '#91, Office No 8, Sierra Cartel, HSR Layout',
+    city: 'Bangalore ',
+    state: 'Karnataka',
+    postalCode: '560102',
     country: 'India'
   },
   socialLinks: {
