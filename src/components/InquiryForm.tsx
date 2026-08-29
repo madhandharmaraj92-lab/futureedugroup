@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { DIVISIONS } from '../data/siteData';
 import { InquiryFormData } from '../types';
+import { blogApi, BlogApiError } from '../lib/blogApi';
 
 interface InquiryFormProps {
   initialDivision?: string;
@@ -46,24 +47,27 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({
     setErrorMessage('');
 
     try {
-      // Pure client-side persistence in localStorage
-      const existingInquiries = JSON.parse(localStorage.getItem('futureedugroup_inquiries') || '[]');
-      const newInquiry = {
-        ...formData,
-        id: `inq_${Date.now()}`,
-        submittedAt: new Date().toISOString()
-      };
-      localStorage.setItem('futureedugroup_inquiries', JSON.stringify([newInquiry, ...existingInquiries]));
-
-      // Brief realistic delay for smooth UX
-      await new Promise((resolve) => setTimeout(resolve, 500));
+      const context = [
+        `User type: ${formData.userType}`,
+        `Division: ${formData.division}`,
+        formData.program ? `Program: ${formData.program}` : '',
+        '',
+        formData.message,
+      ].filter((value, index) => value || index === 3).join('\n').slice(0, 2000);
+      await blogApi.contact({
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        mobile: formData.phone.trim(),
+        message: context,
+      });
 
       setStatus('success');
       if (onSuccess) {
         setTimeout(onSuccess, 2000);
       }
-    } catch {
-      setStatus('success');
+    } catch (reason) {
+      setStatus('error');
+      setErrorMessage(reason instanceof BlogApiError ? reason.message : 'Unable to submit your inquiry. Please try again.');
     }
   };
 

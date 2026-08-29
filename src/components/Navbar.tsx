@@ -172,6 +172,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry, onOpenSearch }) =
                 </li>
 
                 <li>
+                  <Link to="/blogs" className={pathname === '/blogs' ? 'active' : ''}>
+                    Blogs
+                  </Link>
+                </li>
+
+                <li>
                   <Link to="/contact-us" className={pathname === '/contact-us' ? 'active' : ''}>
                     Contact Us
                   </Link>
