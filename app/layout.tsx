@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import '../vendor/bootstrap/css/bootstrap.min.css';
 import './theme.css';
 
@@ -30,7 +31,21 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <link rel="stylesheet" href="/assets/css/owl.css" />
         <link rel="stylesheet" href="/assets/css/lightbox.css" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-GM94QRQ5TD"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-GM94QRQ5TD');
+          `}
+        </Script>
+      </body>
     </html>
   );
 }

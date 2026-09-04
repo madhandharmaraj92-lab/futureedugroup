@@ -4,6 +4,7 @@ const config = {
   generateRobotsTxt: false,
   generateIndexSitemap: false,
   outputDir: 'out',
+  exclude: ['/blogs/__build-placeholder__'],
   additionalPaths: async () => {
     const apiBase = (process.env.BLOG_BUILD_API_URL || process.env.NEXT_PUBLIC_BLOG_API_URL || '').replace(/\/$/, '');
     const websiteId = process.env.NEXT_PUBLIC_BLOG_WEBSITE_ID || 'futureedugroup';

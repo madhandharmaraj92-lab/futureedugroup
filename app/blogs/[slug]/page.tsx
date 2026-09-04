@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { SiteLayout } from '../../../src/App';
 import { BlogsPage } from '../../../src/views/BlogsPage';
 
 type BlogItem = { slug: string; title: string; meta_title: string | null; excerpt: string | null; meta_description: string | null };
+const buildPlaceholderSlug = '__build-placeholder__';
 const apiBase = (process.env.BLOG_BUILD_API_URL || process.env.NEXT_PUBLIC_BLOG_API_URL || '').replace(/\/$/, '');
 const websiteId = process.env.NEXT_PUBLIC_BLOG_WEBSITE_ID || 'futureedugroup';
 const websiteSlug = process.env.NEXT_PUBLIC_BLOG_WEBSITE_SLUG || 'futureedugroup';
@@ -24,7 +26,7 @@ const getBlog = async (slug: string): Promise<BlogItem | null> => {
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  if (!apiBase) return [];
+  if (!apiBase) return [{ slug: buildPlaceholderSlug }];
   try {
     const slugs: { slug: string }[] = [];
     let page = 1;
@@ -34,10 +36,10 @@ export async function generateStaticParams() {
       if (page * result.per_page >= result.total) break;
       page += 1;
     }
-    return slugs;
+    return slugs.length ? slugs : [{ slug: buildPlaceholderSlug }];
   } catch (error) {
     console.warn(`[blogs] Blog API unavailable while generating static routes. ${error instanceof Error ? error.message : ''}`);
-    return [];
+    return [{ slug: buildPlaceholderSlug }];
   }
 }
 
@@ -49,5 +51,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function BlogDetailRoute({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  if (slug === buildPlaceholderSlug) notFound();
   return <SiteLayout><BlogsPage initialSlug={slug} /></SiteLayout>;
 }
