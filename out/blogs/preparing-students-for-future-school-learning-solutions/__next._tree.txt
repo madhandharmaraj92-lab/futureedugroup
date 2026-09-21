@@ -5,4 +5,4 @@
 :HL["/assets/css/templatemo-eduwell-style.css","style"]
 :HL["/assets/css/owl.css","style"]
 :HL["/assets/css/lightbox.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"blogs","param":null,"prefetchHints":4192,"slots":{"children":{"name":"slug","param":{"type":"d","key":"__build-placeholder__","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"RaRtbMRFHwQib3mTdpMET"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"blogs","param":null,"prefetchHints":4192,"slots":{"children":{"name":"slug","param":{"type":"d","key":"preparing-students-for-future-school-learning-solutions","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"efhOjlGgalp6wlNI324jc"}

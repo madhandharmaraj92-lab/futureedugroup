@@ -32,7 +32,7 @@ export const SITE_CONFIG = {
   socialLinks: {
     facebook: 'https://facebook.com/futureedugroup',
     linkedin: 'https://linkedin.com/company/futureedugroup',
-    twitter: 'https://twitter.com/futureedugroup',
+    twitter: 'https://x.com/furtureedugroup',
     instagram: 'https://instagram.com/futureedugroup',
     youtube: 'https://youtube.com/@futureedugroup'
   }

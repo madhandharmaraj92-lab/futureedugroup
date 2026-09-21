@@ -65,6 +65,15 @@ export const Footer: React.FC = () => {
               >
                 <i className="fa fa-youtube-play"></i>
               </a>
+              <a
+                href={SITE_CONFIG.socialLinks.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', textDecoration: 'none' }}
+                aria-label="Linked In"
+              >
+                <i className="fa fa-linkedin"></i>
+              </a>
             </div>
           </div>
 
