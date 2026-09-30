@@ -3,7 +3,7 @@ export interface SEOProps {
   description: string;
   keywords?: string[];
   canonicalPath?: string;
-  ogType?: 'website' | 'article';
+  ogType?: "website" | "article";
   ogImage?: string;
   schema?: object | object[];
 }
@@ -24,7 +24,7 @@ export interface DivisionInfo {
 export interface ProgramItem {
   id: string;
   title: string;
-  division: 'tourism' | 'higher-ed' | 'k12';
+  division: "tourism" | "higher-ed" | "k12";
   duration: string;
   mode: string;
   certification: string;
@@ -58,6 +58,7 @@ export interface InquiryFormData {
   phone: string;
   division: string;
   program?: string;
-  userType: 'student' | 'working-professional' | 'school-administrator' | 'parent';
+  userType:
+    "student" | "working-professional" | "school-administrator" | "parent";
   message: string;
 }

@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
 interface FloatingEducationBackgroundProps {
-  density?: 'low' | 'medium' | 'high' | 'ultra';
+  density?: "low" | "medium" | "high" | "ultra";
   className?: string;
   interactive?: boolean;
   fixed?: boolean;
@@ -9,7 +9,19 @@ interface FloatingEducationBackgroundProps {
 
 interface EduItem {
   id: number;
-  type: 'book' | 'openBook' | 'notebook' | 'pen' | 'pencil' | 'gradCap' | 'lightbulb' | 'ruler' | 'flask' | 'paperPlane' | 'atom' | 'sparkle';
+  type:
+    | "book"
+    | "openBook"
+    | "notebook"
+    | "pen"
+    | "pencil"
+    | "gradCap"
+    | "lightbulb"
+    | "ruler"
+    | "flask"
+    | "paperPlane"
+    | "atom"
+    | "sparkle";
   x: number;
   y: number;
   baseX: number;
@@ -40,20 +52,29 @@ interface TrailParticle {
   maxLife: number;
 }
 
-export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundProps> = ({
-  density = 'medium',
-  className = '',
+export const FloatingEducationBackground: React.FC<
+  FloatingEducationBackgroundProps
+> = ({
+  density = "medium",
+  className = "",
   interactive = true,
-  fixed = false
+  fixed = false,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const mouseRef = useRef<{ x: number; y: number; targetX: number; targetY: number; active: boolean; isMoving: boolean }>({
+  const mouseRef = useRef<{
+    x: number;
+    y: number;
+    targetX: number;
+    targetY: number;
+    active: boolean;
+    isMoving: boolean;
+  }>({
     x: 0,
     y: 0,
     targetX: 0,
     targetY: 0,
     active: false,
-    isMoving: false
+    isMoving: false,
   });
   const itemsRef = useRef<EduItem[]>([]);
   const particlesRef = useRef<TrailParticle[]>([]);
@@ -64,48 +85,67 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let width = fixed ? window.innerWidth : (canvas.parentElement?.clientWidth || window.innerWidth);
-    let height = fixed ? window.innerHeight : (canvas.parentElement?.clientHeight || window.innerHeight);
+    let width = fixed
+      ? window.innerWidth
+      : canvas.parentElement?.clientWidth || window.innerWidth;
+    let height = fixed
+      ? window.innerHeight
+      : canvas.parentElement?.clientHeight || window.innerHeight;
 
     const handleResize = () => {
       if (!canvas) return;
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      width = fixed ? window.innerWidth : (canvas.parentElement?.clientWidth || window.innerWidth);
-      height = fixed ? window.innerHeight : (canvas.parentElement?.clientHeight || window.innerHeight);
+      width = fixed
+        ? window.innerWidth
+        : canvas.parentElement?.clientWidth || window.innerWidth;
+      height = fixed
+        ? window.innerHeight
+        : canvas.parentElement?.clientHeight || window.innerHeight;
       canvas.width = width * dpr;
       canvas.height = height * dpr;
       ctx.scale(dpr, dpr);
       initItems();
     };
 
-    const count = density === 'ultra' ? (width < 768 ? 25 : 46) : density === 'high' ? (width < 768 ? 20 : 34) : density === 'low' ? 14 : 24;
+    const count =
+      density === "ultra"
+        ? width < 768
+          ? 25
+          : 46
+        : density === "high"
+          ? width < 768
+            ? 20
+            : 34
+          : density === "low"
+            ? 14
+            : 24;
 
     const palette = [
-      { primary: '#2563eb', secondary: '#93c5fd' }, // Royal Blue
-      { primary: '#0284c7', secondary: '#bae6fd' }, // Sky / Cyan Blue
-      { primary: '#3b82f6', secondary: '#dbeafe' }, // Bright Blue
-      { primary: '#4f46e5', secondary: '#c7d2fe' }, // Indigo
-      { primary: '#0d9488', secondary: '#99f6e4' }, // Teal
-      { primary: '#6366f1', secondary: '#e0e7ff' }, // Slate Indigo
-      { primary: '#f59e0b', secondary: '#fde68a' }  // Golden Amber accent
+      { primary: "#2563eb", secondary: "#93c5fd" }, // Royal Blue
+      { primary: "#0284c7", secondary: "#bae6fd" }, // Sky / Cyan Blue
+      { primary: "#3b82f6", secondary: "#dbeafe" }, // Bright Blue
+      { primary: "#4f46e5", secondary: "#c7d2fe" }, // Indigo
+      { primary: "#0d9488", secondary: "#99f6e4" }, // Teal
+      { primary: "#6366f1", secondary: "#e0e7ff" }, // Slate Indigo
+      { primary: "#f59e0b", secondary: "#fde68a" }, // Golden Amber accent
     ];
 
-    const types: EduItem['type'][] = [
-      'openBook',
-      'book',
-      'notebook',
-      'pen',
-      'pencil',
-      'gradCap',
-      'lightbulb',
-      'ruler',
-      'flask',
-      'paperPlane',
-      'atom',
-      'sparkle'
+    const types: EduItem["type"][] = [
+      "openBook",
+      "book",
+      "notebook",
+      "pen",
+      "pencil",
+      "gradCap",
+      "lightbulb",
+      "ruler",
+      "flask",
+      "paperPlane",
+      "atom",
+      "sparkle",
     ];
 
     const initItems = () => {
@@ -122,11 +162,23 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
           const p = palette[idx % palette.length];
           const type = types[idx % types.length];
           const depth = 0.35 + Math.random() * 0.65; // depth determines scale, parallax & speed
-          const size = (type === 'sparkle' ? 14 : type === 'gradCap' || type === 'openBook' ? 34 : 26) * (0.75 + depth * 0.45);
-          
+          const size =
+            (type === "sparkle"
+              ? 14
+              : type === "gradCap" || type === "openBook"
+                ? 34
+                : 26) *
+            (0.75 + depth * 0.45);
+
           // Distribute across grid with jitter
-          const x = Math.max(30, Math.min(width - 30, (c + 0.2 + Math.random() * 0.6) * cellW));
-          const y = Math.max(30, Math.min(height - 30, (r + 0.2 + Math.random() * 0.6) * cellH));
+          const x = Math.max(
+            30,
+            Math.min(width - 30, (c + 0.2 + Math.random() * 0.6) * cellW),
+          );
+          const y = Math.max(
+            30,
+            Math.min(height - 30, (r + 0.2 + Math.random() * 0.6) * cellH),
+          );
 
           newItems.push({
             id: idx,
@@ -146,7 +198,7 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
             depth,
             color: p.primary,
             accentColor: p.secondary,
-            opacity: fixed ? (0.16 + depth * 0.24) : (0.18 + depth * 0.32)
+            opacity: fixed ? 0.16 + depth * 0.24 : 0.18 + depth * 0.32,
           });
           idx++;
         }
@@ -182,9 +234,9 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
           vy: (Math.random() - 0.5) * 1.4 - 0.4,
           size: 2 + Math.random() * 3,
           alpha: 0.65,
-          color: Math.random() > 0.5 ? '#38bdf8' : '#60a5fa',
+          color: Math.random() > 0.5 ? "#38bdf8" : "#60a5fa",
           life: 0,
-          maxLife: 30 + Math.random() * 20
+          maxLife: 30 + Math.random() * 20,
         });
       }
     };
@@ -193,23 +245,28 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
       mouseRef.current.active = false;
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     if (interactive) {
-      window.addEventListener('pointermove', handlePointerMove);
-      window.addEventListener('pointerleave', handlePointerLeave);
+      window.addEventListener("pointermove", handlePointerMove);
+      window.addEventListener("pointerleave", handlePointerLeave);
     }
 
     // DRAWING FUNCTIONS FOR 2D ILLUSTRATIONS
-    const drawOpenBook = (c: CanvasRenderingContext2D, size: number, color: string, accent: string) => {
+    const drawOpenBook = (
+      c: CanvasRenderingContext2D,
+      size: number,
+      color: string,
+      accent: string,
+    ) => {
       const w = size;
       const h = size * 0.65;
       c.save();
       // Book spine and pages
       c.strokeStyle = color;
-      c.fillStyle = '#ffffff';
+      c.fillStyle = "#ffffff";
       c.lineWidth = 2;
-      c.lineJoin = 'round';
-      c.lineCap = 'round';
+      c.lineJoin = "round";
+      c.lineCap = "round";
 
       // Left page curve
       c.beginPath();
@@ -242,7 +299,7 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
       c.beginPath();
       c.moveTo(0, -h * 0.35);
       c.quadraticCurveTo(w * 0.15, 0, w * 0.2, h * 1.1);
-      c.strokeStyle = '#f59e0b';
+      c.strokeStyle = "#f59e0b";
       c.lineWidth = 2.5;
       c.stroke();
 
@@ -269,12 +326,17 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
       c.restore();
     };
 
-    const drawStackedBook = (c: CanvasRenderingContext2D, size: number, color: string, accent: string) => {
+    const drawStackedBook = (
+      c: CanvasRenderingContext2D,
+      size: number,
+      color: string,
+      accent: string,
+    ) => {
       const w = size * 0.8;
       const h = size * 0.55;
       c.save();
       c.lineWidth = 2;
-      c.lineJoin = 'round';
+      c.lineJoin = "round";
 
       // Bottom book
       c.fillStyle = accent;
@@ -286,7 +348,7 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
 
       // Top Book (angled)
       c.rotate(-0.15);
-      c.fillStyle = '#ffffff';
+      c.fillStyle = "#ffffff";
       c.beginPath();
       c.roundRect(-w * 0.55, -h * 0.6, w * 1.1, h * 0.45, 3);
       c.fill();
@@ -298,14 +360,19 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
       c.restore();
     };
 
-    const drawNotebook = (c: CanvasRenderingContext2D, size: number, color: string, accent: string) => {
+    const drawNotebook = (
+      c: CanvasRenderingContext2D,
+      size: number,
+      color: string,
+      accent: string,
+    ) => {
       const w = size * 0.7;
       const h = size * 0.9;
       c.save();
       c.lineWidth = 2;
 
       // Cover / Sheet
-      c.fillStyle = '#ffffff';
+      c.fillStyle = "#ffffff";
       c.strokeStyle = color;
       c.beginPath();
       c.roundRect(-w * 0.5, -h * 0.5, w, h, 6);
@@ -313,7 +380,7 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
       c.stroke();
 
       // Spiral wire rings along left
-      c.strokeStyle = '#64748b';
+      c.strokeStyle = "#64748b";
       c.lineWidth = 1.8;
       const ringCount = 5;
       for (let i = 0; i < ringCount; i++) {
@@ -338,7 +405,7 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
       c.stroke();
 
       // Checked tick badge
-      c.strokeStyle = '#10b981';
+      c.strokeStyle = "#10b981";
       c.lineWidth = 2;
       c.beginPath();
       c.moveTo(-w * 0.38, -h * 0.26);
@@ -349,7 +416,12 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
       c.restore();
     };
 
-    const drawPen = (c: CanvasRenderingContext2D, size: number, color: string, accent: string) => {
+    const drawPen = (
+      c: CanvasRenderingContext2D,
+      size: number,
+      color: string,
+      accent: string,
+    ) => {
       const len = size * 1.1;
       const thick = size * 0.18;
       c.save();
@@ -357,7 +429,7 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
 
       // Pen Barrel
       c.fillStyle = color;
-      c.strokeStyle = '#0f172a';
+      c.strokeStyle = "#0f172a";
       c.beginPath();
       c.moveTo(-thick * 0.5, -len * 0.4);
       c.lineTo(thick * 0.5, -len * 0.4);
@@ -379,7 +451,7 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
       c.stroke();
 
       // Metallic Nib
-      c.fillStyle = '#e2e8f0';
+      c.fillStyle = "#e2e8f0";
       c.beginPath();
       c.moveTo(-thick * 0.3, len * 0.38);
       c.lineTo(thick * 0.3, len * 0.38);
@@ -389,7 +461,7 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
       c.stroke();
 
       // Pen Cap Top / Clip
-      c.fillStyle = '#f59e0b';
+      c.fillStyle = "#f59e0b";
       c.beginPath();
       c.arc(0, -len * 0.45, thick * 0.5, Math.PI, 0);
       c.fill();
@@ -400,29 +472,33 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
       c.moveTo(thick * 0.5, -len * 0.42);
       c.lineTo(thick * 0.8, -len * 0.42);
       c.lineTo(thick * 0.8, -len * 0.1);
-      c.strokeStyle = '#f59e0b';
+      c.strokeStyle = "#f59e0b";
       c.lineWidth = 2;
       c.stroke();
 
       c.restore();
     };
 
-    const drawPencil = (c: CanvasRenderingContext2D, size: number, color: string) => {
+    const drawPencil = (
+      c: CanvasRenderingContext2D,
+      size: number,
+      color: string,
+    ) => {
       const len = size * 1.0;
       const w = size * 0.2;
       c.save();
       c.lineWidth = 1.8;
 
       // Wooden body
-      c.fillStyle = '#f59e0b';
-      c.strokeStyle = '#0f172a';
+      c.fillStyle = "#f59e0b";
+      c.strokeStyle = "#0f172a";
       c.beginPath();
       c.rect(-w * 0.5, -len * 0.35, w, len * 0.65);
       c.fill();
       c.stroke();
 
       // Sharpened wood cone
-      c.fillStyle = '#fed7aa';
+      c.fillStyle = "#fed7aa";
       c.beginPath();
       c.moveTo(-w * 0.5, len * 0.3);
       c.lineTo(w * 0.5, len * 0.3);
@@ -432,7 +508,7 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
       c.stroke();
 
       // Graphite tip
-      c.fillStyle = '#1e293b';
+      c.fillStyle = "#1e293b";
       c.beginPath();
       c.moveTo(-w * 0.2, len * 0.46);
       c.lineTo(w * 0.2, len * 0.46);
@@ -441,30 +517,34 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
       c.fill();
 
       // Eraser top
-      c.fillStyle = '#f43f5e';
+      c.fillStyle = "#f43f5e";
       c.beginPath();
       c.roundRect(-w * 0.5, -len * 0.5, w, len * 0.15, [4, 4, 0, 0]);
       c.fill();
       c.stroke();
 
       // Metal ferrule ring
-      c.fillStyle = '#cbd5e1';
+      c.fillStyle = "#cbd5e1";
       c.fillRect(-w * 0.5, -len * 0.35, w, len * 0.08);
       c.strokeRect(-w * 0.5, -len * 0.35, w, len * 0.08);
 
       c.restore();
     };
 
-    const drawGradCap = (c: CanvasRenderingContext2D, size: number, color: string) => {
+    const drawGradCap = (
+      c: CanvasRenderingContext2D,
+      size: number,
+      color: string,
+    ) => {
       const w = size * 0.9;
       const h = size * 0.55;
       c.save();
       c.lineWidth = 2;
-      c.lineJoin = 'round';
+      c.lineJoin = "round";
 
       // Cap Under-skull cap
-      c.fillStyle = '#1e293b';
-      c.strokeStyle = '#0f172a';
+      c.fillStyle = "#1e293b";
+      c.strokeStyle = "#0f172a";
       c.beginPath();
       c.ellipse(0, h * 0.25, w * 0.35, h * 0.3, 0, 0, Math.PI);
       c.fill();
@@ -482,13 +562,13 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
       c.stroke();
 
       // Center button
-      c.fillStyle = '#f59e0b';
+      c.fillStyle = "#f59e0b";
       c.beginPath();
       c.arc(0, 0, 3.5, 0, Math.PI * 2);
       c.fill();
 
       // Hanging Tassel
-      c.strokeStyle = '#f59e0b';
+      c.strokeStyle = "#f59e0b";
       c.lineWidth = 2;
       c.beginPath();
       c.moveTo(0, 0);
@@ -496,7 +576,7 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
       c.stroke();
 
       // Tassel fringe brush
-      c.fillStyle = '#f59e0b';
+      c.fillStyle = "#f59e0b";
       c.beginPath();
       c.arc(w * 0.45, h * 0.65, 4, 0, Math.PI * 2);
       c.fill();
@@ -504,23 +584,28 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
       c.restore();
     };
 
-    const drawLightbulb = (c: CanvasRenderingContext2D, size: number, color: string, accent: string) => {
+    const drawLightbulb = (
+      c: CanvasRenderingContext2D,
+      size: number,
+      color: string,
+      accent: string,
+    ) => {
       const r = size * 0.35;
       c.save();
       c.lineWidth = 2;
 
       // Glow halo
       const grad = c.createRadialGradient(0, -r * 0.2, 2, 0, -r * 0.2, r * 1.8);
-      grad.addColorStop(0, 'rgba(254, 240, 138, 0.4)');
-      grad.addColorStop(1, 'rgba(254, 240, 138, 0)');
+      grad.addColorStop(0, "rgba(254, 240, 138, 0.4)");
+      grad.addColorStop(1, "rgba(254, 240, 138, 0)");
       c.fillStyle = grad;
       c.beginPath();
       c.arc(0, -r * 0.2, r * 1.8, 0, Math.PI * 2);
       c.fill();
 
       // Glass bulb outline
-      c.fillStyle = '#fffbeb';
-      c.strokeStyle = '#eab308';
+      c.fillStyle = "#fffbeb";
+      c.strokeStyle = "#eab308";
       c.beginPath();
       c.arc(0, -r * 0.3, r, 0.7 * Math.PI, 0.3 * Math.PI, false);
       c.lineTo(r * 0.45, r * 0.7);
@@ -530,7 +615,7 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
       c.stroke();
 
       // Inner filament coil
-      c.strokeStyle = '#f59e0b';
+      c.strokeStyle = "#f59e0b";
       c.lineWidth = 1.8;
       c.beginPath();
       c.moveTo(-r * 0.25, r * 0.4);
@@ -541,8 +626,8 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
       c.stroke();
 
       // Metallic socket base
-      c.fillStyle = '#94a3b8';
-      c.strokeStyle = '#475569';
+      c.fillStyle = "#94a3b8";
+      c.strokeStyle = "#475569";
       c.beginPath();
       c.roundRect(-r * 0.4, r * 0.7, r * 0.8, r * 0.4, 2);
       c.fill();
@@ -551,13 +636,17 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
       c.restore();
     };
 
-    const drawRuler = (c: CanvasRenderingContext2D, size: number, color: string) => {
+    const drawRuler = (
+      c: CanvasRenderingContext2D,
+      size: number,
+      color: string,
+    ) => {
       const w = size * 0.9;
       const h = size * 0.32;
       c.save();
       c.lineWidth = 2;
 
-      c.fillStyle = '#ffffff';
+      c.fillStyle = "#ffffff";
       c.strokeStyle = color;
       c.beginPath();
       c.roundRect(-w * 0.5, -h * 0.5, w, h, 4);
@@ -579,14 +668,19 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
       c.restore();
     };
 
-    const drawFlask = (c: CanvasRenderingContext2D, size: number, color: string, accent: string) => {
+    const drawFlask = (
+      c: CanvasRenderingContext2D,
+      size: number,
+      color: string,
+      accent: string,
+    ) => {
       const w = size * 0.7;
       const h = size * 0.85;
       c.save();
       c.lineWidth = 2;
 
       // Flask glass contour
-      c.fillStyle = '#ffffff';
+      c.fillStyle = "#ffffff";
       c.strokeStyle = color;
       c.beginPath();
       c.moveTo(-w * 0.2, -h * 0.45);
@@ -612,7 +706,7 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
       c.fill();
 
       // Tiny bubbles
-      c.fillStyle = '#ffffff';
+      c.fillStyle = "#ffffff";
       c.beginPath();
       c.arc(-w * 0.15, h * 0.25, 2.5, 0, Math.PI * 2);
       c.arc(w * 0.18, h * 0.2, 3, 0, Math.PI * 2);
@@ -622,14 +716,18 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
       c.restore();
     };
 
-    const drawPaperPlane = (c: CanvasRenderingContext2D, size: number, color: string) => {
+    const drawPaperPlane = (
+      c: CanvasRenderingContext2D,
+      size: number,
+      color: string,
+    ) => {
       const s = size * 0.8;
       c.save();
       c.lineWidth = 1.8;
-      c.lineJoin = 'round';
+      c.lineJoin = "round";
 
       // Left wing
-      c.fillStyle = '#ffffff';
+      c.fillStyle = "#ffffff";
       c.strokeStyle = color;
       c.beginPath();
       c.moveTo(s * 0.6, 0);
@@ -640,7 +738,7 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
       c.stroke();
 
       // Right wing (darker shade for depth)
-      c.fillStyle = '#e2e8f0';
+      c.fillStyle = "#e2e8f0";
       c.beginPath();
       c.moveTo(s * 0.6, 0);
       c.lineTo(-s * 0.5, s * 0.45);
@@ -659,7 +757,12 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
       c.restore();
     };
 
-    const drawAtom = (c: CanvasRenderingContext2D, size: number, color: string, accent: string) => {
+    const drawAtom = (
+      c: CanvasRenderingContext2D,
+      size: number,
+      color: string,
+      accent: string,
+    ) => {
       const r = size * 0.45;
       c.save();
       c.lineWidth = 1.6;
@@ -681,7 +784,7 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
       c.stroke();
 
       // Nucleus
-      c.fillStyle = '#f59e0b';
+      c.fillStyle = "#f59e0b";
       c.beginPath();
       c.arc(0, 0, 4, 0, Math.PI * 2);
       c.fill();
@@ -696,7 +799,11 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
       c.restore();
     };
 
-    const drawSparkle = (c: CanvasRenderingContext2D, size: number, color: string) => {
+    const drawSparkle = (
+      c: CanvasRenderingContext2D,
+      size: number,
+      color: string,
+    ) => {
       const r = size * 0.6;
       c.save();
       c.fillStyle = color;
@@ -763,7 +870,8 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
 
         // 1. Natural Sinusoidal Drift
         const waveX = Math.sin(t * item.speed + item.phase) * (18 * item.depth);
-        const waveY = Math.cos(t * item.speed * 0.8 + item.phase) * (22 * item.depth);
+        const waveY =
+          Math.cos(t * item.speed * 0.8 + item.phase) * (22 * item.depth);
 
         // 2. Parallax mouse reaction based on depth layer
         const parallaxX = mouseNormX * (55 * item.depth);
@@ -775,8 +883,8 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
         let extraRot = 0;
 
         if (mouse.active) {
-          const dx = (item.baseX + waveX + parallaxX) - mouse.x;
-          const dy = (item.baseY + waveY + parallaxY) - mouse.y;
+          const dx = item.baseX + waveX + parallaxX - mouse.x;
+          const dy = item.baseY + waveY + parallaxY - mouse.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           const repelRadius = 140;
 
@@ -791,7 +899,10 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
 
         const renderX = item.baseX + waveX + parallaxX + repelX;
         const renderY = item.baseY + waveY + parallaxY + repelY;
-        const currentRot = item.baseRotation + Math.sin(t * item.rotSpeed * 100 + item.phase) * 0.2 + extraRot;
+        const currentRot =
+          item.baseRotation +
+          Math.sin(t * item.rotSpeed * 100 + item.phase) * 0.2 +
+          extraRot;
 
         // Render item illustration
         ctx.save();
@@ -800,46 +911,46 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
         ctx.globalAlpha = item.opacity;
 
         // Soft drop-shadow for 2D illustration pop
-        ctx.shadowColor = 'rgba(15, 23, 42, 0.12)';
+        ctx.shadowColor = "rgba(15, 23, 42, 0.12)";
         ctx.shadowBlur = 8 * item.depth;
         ctx.shadowOffsetX = 2 * item.depth;
         ctx.shadowOffsetY = 4 * item.depth;
 
         switch (item.type) {
-          case 'openBook':
+          case "openBook":
             drawOpenBook(ctx, item.size, item.color, item.accentColor);
             break;
-          case 'book':
+          case "book":
             drawStackedBook(ctx, item.size, item.color, item.accentColor);
             break;
-          case 'notebook':
+          case "notebook":
             drawNotebook(ctx, item.size, item.color, item.accentColor);
             break;
-          case 'pen':
+          case "pen":
             drawPen(ctx, item.size, item.color, item.accentColor);
             break;
-          case 'pencil':
+          case "pencil":
             drawPencil(ctx, item.size, item.color);
             break;
-          case 'gradCap':
+          case "gradCap":
             drawGradCap(ctx, item.size, item.color);
             break;
-          case 'lightbulb':
+          case "lightbulb":
             drawLightbulb(ctx, item.size, item.color, item.accentColor);
             break;
-          case 'ruler':
+          case "ruler":
             drawRuler(ctx, item.size, item.color);
             break;
-          case 'flask':
+          case "flask":
             drawFlask(ctx, item.size, item.color, item.accentColor);
             break;
-          case 'paperPlane':
+          case "paperPlane":
             drawPaperPlane(ctx, item.size, item.color);
             break;
-          case 'atom':
+          case "atom":
             drawAtom(ctx, item.size, item.color, item.accentColor);
             break;
-          case 'sparkle':
+          case "sparkle":
             drawSparkle(ctx, item.size, item.color);
             break;
           default:
@@ -856,10 +967,10 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
 
     return () => {
       cancelAnimationFrame(animFrameRef.current);
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
       if (interactive) {
-        window.removeEventListener('pointermove', handlePointerMove);
-        window.removeEventListener('pointerleave', handlePointerLeave);
+        window.removeEventListener("pointermove", handlePointerMove);
+        window.removeEventListener("pointerleave", handlePointerLeave);
       }
     };
   }, [density, interactive, fixed]);
@@ -868,24 +979,24 @@ export const FloatingEducationBackground: React.FC<FloatingEducationBackgroundPr
     <div
       className={`floating-education-background ${className}`}
       style={{
-        position: fixed ? 'fixed' : 'absolute',
+        position: fixed ? "fixed" : "absolute",
         top: 0,
         left: 0,
         right: 0,
         bottom: 0,
-        width: fixed ? '100vw' : '100%',
-        height: fixed ? '100vh' : '100%',
-        overflow: 'hidden',
-        pointerEvents: 'none',
-        zIndex: fixed ? 0 : 0
+        width: fixed ? "100vw" : "100%",
+        height: fixed ? "100vh" : "100%",
+        overflow: "hidden",
+        pointerEvents: "none",
+        zIndex: fixed ? 0 : 0,
       }}
     >
       <canvas
         ref={canvasRef}
         style={{
-          width: '100%',
-          height: '100%',
-          display: 'block'
+          width: "100%",
+          height: "100%",
+          display: "block",
         }}
       />
     </div>
