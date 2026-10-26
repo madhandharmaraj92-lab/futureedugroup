@@ -19,6 +19,15 @@ interface HomePageProps {
   onOpenInquiry?: (division?: string) => void;
 }
 
+const PROGRAM_IMAGE_DIMENSIONS: Record<string, { width: number; height: number }> = {
+  "/assets/images/courses-01.jpg": { width: 300, height: 363 },
+  "/assets/images/courses-02.jpg": { width: 300, height: 363 },
+  "/assets/images/courses-03.jpg": { width: 300, height: 363 },
+  "/assets/images/courses-04.jpg": { width: 300, height: 363 },
+  "/assets/images/team-member-01.jpg": { width: 370, height: 342 },
+  "/assets/images/team-member-02.jpg": { width: 370, height: 342 },
+};
+
 export const HomePage: React.FC<HomePageProps> = () => {
   const onOpenInquiry = useInquiry();
   const [activeTab, setActiveTab] = useState<number>(0);
@@ -28,19 +37,32 @@ export const HomePage: React.FC<HomePageProps> = () => {
     {
       name: "Asian International University",
       src: "/assets/images/logos/aiu%20logo.png",
+      width: 832,
+      height: 275,
     },
     {
       name: "Sikkim Skill University",
       src: "/assets/images/logos/new-ssu-logo.png",
+      width: 2262,
+      height: 678,
     },
     {
       name: "Shri Rukmini Dwarkadhish University",
       src: "/assets/images/logos/2%20logo.png",
+      width: 572,
+      height: 272,
     },
-    { name: "Swaminarayan University", src: "/assets/images/logos/SN.png" },
+    {
+      name: "Swaminarayan University",
+      src: "/assets/images/logos/SN.png",
+      width: 1599,
+      height: 773,
+    },
     {
       name: "Vivekananda Global University",
       src: "/assets/images/logos/gdoe.png",
+      width: 1600,
+      height: 623,
     },
   ];
 
@@ -155,6 +177,10 @@ export const HomePage: React.FC<HomePageProps> = () => {
                   <img
                     src={university.src}
                     alt={university.name}
+                    width={university.width}
+                    height={university.height}
+                    loading="lazy"
+                    decoding="async"
                     style={{
                       width: "100%",
                       height: "66px",
@@ -186,10 +212,21 @@ export const HomePage: React.FC<HomePageProps> = () => {
       >
         <div className="container">
           <div className="founder-card">
-            <img
-              src="/assets/images/founder-naresh-sampara.png"
-              alt="Dr. Naresh Sampara"
-            />
+            <picture>
+              <source
+                type="image/webp"
+                srcSet="/assets/images/founder-naresh-sampara-205.webp 205w, /assets/images/founder-naresh-sampara-410.webp 410w"
+                sizes="(max-width: 576px) 145px, 205px"
+              />
+              <img
+                src="/assets/images/founder-naresh-sampara.png"
+                alt="Dr. Naresh Sampara"
+                width={410}
+                height={723}
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
             <div>
               <h2>Dr. Naresh Sampara</h2>
               <p>Founder &amp; Chairman</p>
@@ -244,6 +281,10 @@ export const HomePage: React.FC<HomePageProps> = () => {
                           <img
                             src={division.icon}
                             alt={division.title}
+                            width={56}
+                            height={56}
+                            loading="lazy"
+                            decoding="async"
                             style={{ width: "56px", height: "56px" }}
                           />
                         </div>
@@ -436,6 +477,16 @@ export const HomePage: React.FC<HomePageProps> = () => {
                           <img
                             src={PROGRAMS[activeTab].image}
                             alt={PROGRAMS[activeTab].title}
+                            width={
+                              PROGRAM_IMAGE_DIMENSIONS[PROGRAMS[activeTab].image]
+                                .width
+                            }
+                            height={
+                              PROGRAM_IMAGE_DIMENSIONS[PROGRAMS[activeTab].image]
+                                .height
+                            }
+                            loading="lazy"
+                            decoding="async"
                             style={{
                               width: "100%",
                               borderRadius: "14px",
@@ -621,19 +672,30 @@ export const HomePage: React.FC<HomePageProps> = () => {
               >
                 <div className="row align-items-center">
                   <div className="col-lg-5 text-center mb-4 mb-lg-0">
-                    <img
-                      src="/assets/images/video-thumb.jpg"
-                      alt="Curriculum Solutions & Academic Career Pathways"
-                      style={{
-                        maxWidth: "100%",
-                        maxHeight: "340px",
-                        width: "auto",
-                        display: "block",
-                        margin: "0 auto",
-                        filter:
-                          "drop-shadow(0 12px 25px rgba(2, 132, 199, 0.18))",
-                      }}
-                    />
+                    <picture>
+                      <source
+                        type="image/webp"
+                        srcSet="/assets/images/video-thumb-430.webp 430w, /assets/images/video-thumb.webp 770w"
+                        sizes="(max-width: 991px) 100vw, 430px"
+                      />
+                      <img
+                        src="/assets/images/video-thumb.jpg"
+                        alt="Curriculum Solutions & Academic Career Pathways"
+                        width={770}
+                        height={470}
+                        loading="lazy"
+                        decoding="async"
+                        style={{
+                          maxWidth: "100%",
+                          maxHeight: "340px",
+                          width: "auto",
+                          display: "block",
+                          margin: "0 auto",
+                          filter:
+                            "drop-shadow(0 12px 25px rgba(2, 132, 199, 0.18))",
+                        }}
+                      />
+                    </picture>
                   </div>
 
                   <div className="col-lg-7">

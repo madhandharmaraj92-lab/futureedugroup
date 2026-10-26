@@ -1,56 +1,82 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SiteLayout } from '../../../src/App';
+import { JsonLd } from '../../../src/components/JsonLd';
+import { getStaticBlog, getStaticBlogSlugs } from '../../../src/lib/blogStaticData';
 import { BlogsPage } from '../../../src/views/BlogsPage';
 
-type BlogItem = { slug: string; title: string; meta_title: string | null; excerpt: string | null; meta_description: string | null };
+// Next static export rejects an empty dynamic-route parameter list. This is a
+// build sentinel only; the static-host configuration returns 404 for it.
 const buildPlaceholderSlug = '__build-placeholder__';
-const apiBase = (process.env.BLOG_BUILD_API_URL || process.env.NEXT_PUBLIC_BLOG_API_URL || '').replace(/\/$/, '');
-const websiteId = process.env.NEXT_PUBLIC_BLOG_WEBSITE_ID || 'futureedugroup';
-const websiteSlug = process.env.NEXT_PUBLIC_BLOG_WEBSITE_SLUG || 'futureedugroup';
-
-const listBlogs = async (page: number) => {
-  const params = new URLSearchParams({ website_id: websiteId, website_slug: websiteSlug, page: String(page), per_page: '50' });
-  const response = await fetch(`${apiBase}/api/v1/blogs?${params.toString()}`, { cache: 'no-store' });
-  if (!response.ok) throw new Error(`HTTP ${response.status}`);
-  return response.json();
-};
-
-const getBlog = async (slug: string): Promise<BlogItem | null> => {
-  if (!apiBase) return null;
-  const scope = new URLSearchParams({ website_id: websiteId, website_slug: websiteSlug });
-  const response = await fetch(`${apiBase}/api/v1/blogs/${encodeURIComponent(slug)}?${scope.toString()}`, { cache: 'no-store' });
-  return response.ok ? response.json() : null;
-};
 
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  if (!apiBase) return [{ slug: buildPlaceholderSlug }];
-  try {
-    const slugs: { slug: string }[] = [];
-    let page = 1;
-    while (true) {
-      const result = await listBlogs(page);
-      for (const post of result.items || []) slugs.push({ slug: post.slug });
-      if (page * result.per_page >= result.total) break;
-      page += 1;
-    }
-    return slugs.length ? slugs : [{ slug: buildPlaceholderSlug }];
-  } catch (error) {
-    console.warn(`[blogs] Blog API unavailable while generating static routes. ${error instanceof Error ? error.message : ''}`);
-    return [{ slug: buildPlaceholderSlug }];
-  }
+  const slugs = await getStaticBlogSlugs();
+  return slugs.length ? slugs : [{ slug: buildPlaceholderSlug }];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const post = await getBlog(slug).catch(() => null);
-  return { title: post?.meta_title || post?.title || 'Education Article | Future Edu Group', description: post?.meta_description || post?.excerpt || undefined, alternates: { canonical: `/blogs/${slug}` } };
+  if (slug === buildPlaceholderSlug) {
+    return { robots: { index: false, follow: false } };
+  }
+  const post = await getStaticBlog(slug);
+  const title = post?.meta_title || post?.title || 'Education Article | Future Edu Group';
+  const description = post?.meta_description || post?.excerpt || 'Read education insights from Future Edu Group.';
+  const image = post?.thumbnail || '/assets/images/templatemo-eduwell.png';
+
+  return {
+    title,
+    description,
+    alternates: { canonical: `/blogs/${slug}` },
+    openGraph: {
+      type: 'article',
+      title,
+      description,
+      url: `/blogs/${slug}`,
+      siteName: 'Future Edu Group',
+      images: [{ url: image }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [image],
+    },
+  };
 }
 
 export default async function BlogDetailRoute({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  if (slug === buildPlaceholderSlug) notFound();
-  return <SiteLayout><BlogsPage initialSlug={slug} /></SiteLayout>;
+  // `output: 'export'` requires a generated dynamic-route parameter even
+  // when no posts are published. Nginx returns 404 for this build-only path.
+  if (slug === buildPlaceholderSlug) return null;
+  const post = await getStaticBlog(slug);
+  if (!post) notFound();
+
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.meta_description || post.excerpt || undefined,
+    image: post.thumbnail || undefined,
+    datePublished: post.created_at,
+    dateModified: post.updated_at,
+    mainEntityOfPage: `https://futureedugroup.in/blogs/${post.slug}`,
+    publisher: {
+      '@type': 'EducationalOrganization',
+      name: 'Future Edu Group',
+      url: 'https://futureedugroup.in',
+    },
+  };
+
+  return (
+    <SiteLayout>
+      <>
+        <JsonLd id="article-schema" data={articleSchema} />
+        <BlogsPage initialSlug={slug} initialPost={post} />
+      </>
+    </SiteLayout>
+  );
 }

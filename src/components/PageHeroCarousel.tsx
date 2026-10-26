@@ -20,6 +20,26 @@ interface HeroSlide {
   accent: string;
 }
 
+const HERO_IMAGE_DIMENSIONS: Record<string, { width: number; height: number }> = {
+  "/assets/images/team-member-01.jpg": { width: 370, height: 342 },
+  "/assets/images/courses-01.jpg": { width: 300, height: 363 },
+  "/assets/images/video-thumb.jpg": { width: 770, height: 470 },
+  "/assets/images/courses-02.jpg": { width: 300, height: 363 },
+  "/assets/images/team-member-02.jpg": { width: 370, height: 342 },
+  "/assets/images/courses-03.jpg": { width: 300, height: 363 },
+  "/assets/images/courses-04.jpg": { width: 300, height: 363 },
+  "/assets/images/team-member-03.jpg": { width: 370, height: 342 },
+  "/assets/images/team-member-04.jpg": { width: 370, height: 342 },
+  "/assets/images/team-member-05.jpg": { width: 370, height: 342 },
+};
+
+const HERO_WEBP_SOURCES: Record<string, string> = {
+  "/assets/images/team-member-01.jpg": "/assets/images/team-member-01.webp 370w",
+  "/assets/images/courses-01.jpg": "/assets/images/courses-01.webp 300w",
+  "/assets/images/video-thumb.jpg":
+    "/assets/images/video-thumb-430.webp 430w, /assets/images/video-thumb.webp 770w",
+};
+
 const slides: Record<HeroVariant, HeroSlide[]> = {
   home: [
     {
@@ -191,12 +211,17 @@ export const PageHeroCarousel: React.FC<{ variant: HeroVariant }> = ({
 
   return (
     <section className="page-hero-carousel" aria-label="Featured overview">
-      {pageSlides.map((slide, index) => (
-        <article
+      {pageSlides.map((slide, index) => {
+        const isActive = index === active;
+        const dimensions = HERO_IMAGE_DIMENSIONS[slide.image];
+        const webpSource = HERO_WEBP_SOURCES[slide.image];
+
+        return (
+          <article
           className={`page-hero-slide ${index === active ? "is-active" : ""}`}
           style={{ "--hero-accent": slide.accent } as React.CSSProperties}
           key={slide.title}
-          aria-hidden={index !== active}
+          aria-hidden={!isActive}
         >
           <div className="container">
             <div className="row align-items-center">
@@ -214,13 +239,31 @@ export const PageHeroCarousel: React.FC<{ variant: HeroVariant }> = ({
               </div>
               <div className="col-lg-6">
                 <div className="page-hero-art">
-                  <img src={slide.image} alt="" />
+                  <picture>
+                    {webpSource && (
+                      <source
+                        type="image/webp"
+                        srcSet={webpSource}
+                        sizes="(max-width: 991px) 215px, 430px"
+                      />
+                    )}
+                    <img
+                      src={slide.image}
+                      alt=""
+                      width={dimensions.width}
+                      height={dimensions.height}
+                      loading={isActive ? "eager" : "lazy"}
+                      fetchPriority={isActive ? "high" : "low"}
+                      decoding="async"
+                    />
+                  </picture>
                 </div>
               </div>
             </div>
           </div>
         </article>
-      ))}
+        );
+      })}
     </section>
   );
 };

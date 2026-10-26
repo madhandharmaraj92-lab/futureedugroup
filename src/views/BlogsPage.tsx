@@ -5,17 +5,26 @@ import {
   blogApi,
   BlogApiError,
   type BlogDetail,
+  type BlogListResponse,
   type BlogSummary,
 } from "../lib/blogApi";
 
-export const BlogsPage: React.FC<{ initialSlug?: string }> = ({
+type BlogsPageProps = {
+  initialSlug?: string;
+  initialList?: BlogListResponse;
+  initialPost?: BlogDetail;
+};
+
+export const BlogsPage: React.FC<BlogsPageProps> = ({
   initialSlug,
+  initialList,
+  initialPost,
 }) => {
-  const [items, setItems] = useState<BlogSummary[]>([]);
-  const [page, setPage] = useState(1);
-  const [total, setTotal] = useState(0);
-  const [selected, setSelected] = useState<BlogDetail | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [items, setItems] = useState<BlogSummary[]>(initialList?.items ?? []);
+  const [page, setPage] = useState(initialList?.page ?? 1);
+  const [total, setTotal] = useState(initialList?.total ?? 0);
+  const [selected, setSelected] = useState<BlogDetail | null>(initialPost ?? null);
+  const [loading, setLoading] = useState(!initialList && !initialPost);
   const [error, setError] = useState("");
   const perPage = 9;
   const totalPages = Math.max(1, Math.ceil(total / perPage));
@@ -67,13 +76,16 @@ export const BlogsPage: React.FC<{ initialSlug?: string }> = ({
     const openFromUrl = () => {
       const match = window.location.pathname.match(/^\/blogs\/([^/]+)\/?$/);
       const slug = match ? decodeURIComponent(match[1]) : initialSlug;
-      if (slug) loadPost(slug, false);
-      else loadList(page);
+      if (slug) {
+        if (initialPost?.slug !== slug) loadPost(slug, false);
+      } else if (!initialList) {
+        loadList(page);
+      }
     };
     openFromUrl();
     window.addEventListener("popstate", openFromUrl);
     return () => window.removeEventListener("popstate", openFromUrl);
-  }, [initialSlug, loadList, loadPost]);
+  }, [initialList, initialPost, initialSlug, loadList, loadPost, page]);
 
   if (selected)
     return (
@@ -256,13 +268,16 @@ export const BlogsPage: React.FC<{ initialSlug?: string }> = ({
                     >
                       {post.excerpt || post.meta_description || ""}
                     </p>
-                    <button
-                      type="button"
-                      onClick={() => loadPost(post.slug)}
+                    <a
+                      href={`/blogs/${encodeURIComponent(post.slug)}`}
+                      onClick={(event) => {
+                        event.preventDefault();
+                        loadPost(post.slug);
+                      }}
                       style={readButton}
                     >
                       Read article →
-                    </button>
+                    </a>
                   </div>
                 </article>
               </div>
@@ -318,6 +333,7 @@ const readButton: React.CSSProperties = {
   fontWeight: 800,
   padding: 0,
   cursor: "pointer",
+  textDecoration: "none",
 };
 const pagerButton: React.CSSProperties = {
   border: "1px solid #cbd5e1",

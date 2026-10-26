@@ -92,6 +92,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                   className="header-brand-logo"
                   src={headerLogo}
                   alt={headerLogoAlt}
+                  width={500}
+                  height={500}
+                  fetchPriority="low"
+                  decoding="async"
                   style={{
                     width: "168px",
                     height: "102px",
@@ -166,6 +170,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                           className="page-menu-image"
                           src="/assets/images/courses-02.jpg"
                           alt=""
+                          width={300}
+                          height={363}
+                          loading="lazy"
+                          decoding="async"
                         />
                         <span>Tourism &amp; Hospitality Academy</span>
                       </Link>
@@ -181,6 +189,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                           className="page-menu-image"
                           src="/assets/images/team-member-02.jpg"
                           alt=""
+                          width={370}
+                          height={342}
+                          loading="lazy"
+                          decoding="async"
                         />
                         <span>Higher Education Solutions</span>
                       </Link>
@@ -196,6 +208,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                           className="page-menu-image"
                           src="/assets/images/courses-04.jpg"
                           alt=""
+                          width={300}
+                          height={363}
+                          loading="lazy"
+                          decoding="async"
                         />
                         <span>Future Gen Learning Solutions</span>
                       </Link>
@@ -209,6 +225,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                           className="page-menu-image"
                           src="/assets/images/team-member-04.jpg"
                           alt=""
+                          width={370}
+                          height={342}
+                          loading="lazy"
+                          decoding="async"
                         />
                         <span>About Us</span>
                       </Link>
@@ -224,6 +244,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                           className="page-menu-image"
                           src="/assets/images/courses-01.jpg"
                           alt=""
+                          width={300}
+                          height={363}
+                          loading="lazy"
+                          decoding="async"
                         />
                         <span>Student Gallery</span>
                       </Link>

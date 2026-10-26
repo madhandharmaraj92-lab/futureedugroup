@@ -2,8 +2,11 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import '../vendor/bootstrap/css/bootstrap.min.css';
 import './theme.css';
+import { JsonLd } from '../src/components/JsonLd';
+import { getOrganizationSchema } from '../src/utils/schemaGenerator';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://futureedugroup.in'),
   title: 'Future Edu Group | Empowering Education. Enabling Careers. Building Futures.',
   description: 'Future Edu Group provides tourism and hospitality training, higher education guidance, and K-12 learning solutions.',
   icons: {
@@ -17,6 +20,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <head>
+        <JsonLd data={getOrganizationSchema()} id="organization-schema" />
         <link rel="icon" type="image/jpeg" href="/assets/images/logos/logo.jpg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
