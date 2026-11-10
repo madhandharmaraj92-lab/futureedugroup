@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <head>
         <JsonLd data={getOrganizationSchema()} id="organization-schema" />
         <link rel="icon" type="image/jpeg" href="/assets/images/logos/logo.jpg" />

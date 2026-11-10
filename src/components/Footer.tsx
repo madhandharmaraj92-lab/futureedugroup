@@ -273,6 +273,16 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li style={{ marginBottom: "12px" }}>
+                <Link to="/privacy-policy" style={{ color: "#b5b8c7", textDecoration: "none", fontSize: "14px" }}>
+                  Privacy Policy
+                </Link>
+              </li>
+              <li style={{ marginBottom: "12px" }}>
+                <Link to="/terms-and-conditions" style={{ color: "#b5b8c7", textDecoration: "none", fontSize: "14px" }}>
+                  Terms and Conditions
+                </Link>
+              </li>
+              <li style={{ marginBottom: "12px" }}>
                 <a
                   href="/sitemap.xml"
                   target="_blank"

@@ -74,3 +74,10 @@ main section div[style*="box-shadow"] { transition: transform .35s ease, box-sha
 .partner-logo-card { flex: 1 1 0; min-width: 0; animation: partner-slide .45s ease both; }
 @keyframes partner-slide { from { opacity: 0; transform: translateX(22px); } to { opacity: 1; transform: translateX(0); } }
 @media (max-width: 767px) { .partner-logo-strip { justify-content: flex-start !important; overflow-x: auto; padding: 4px 2px 12px; -ms-overflow-style: none; scrollbar-width: none; } .partner-logo-strip::-webkit-scrollbar { display: none; } .partner-logo-card { min-width: 210px; flex: 0 0 210px; } }
+.legal-content { padding: 64px 0 80px; }
+.legal-content-inner { max-width: 900px; margin: 0 auto; padding: clamp(24px, 4vw, 48px); background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; color: #334155; }
+.legal-content-inner h2 { color: #06264a; font-size: 21px; margin: 32px 0 12px; }
+.legal-content-inner p, .legal-content-inner li { font-size: 16px; line-height: 1.8; }
+.legal-content-inner p { margin-bottom: 14px; }
+.legal-content-inner ul { padding-left: 24px; margin-bottom: 14px; }
+.legal-content-inner a { color: #087ab4; overflow-wrap: anywhere; }
